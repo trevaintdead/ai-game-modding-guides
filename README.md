@@ -17,13 +17,17 @@ https://github.com/trevaintdead/ai-game-modding-guides
 
 I want help making a game mod or a game rewrite. [Optional: my idea is ...]
 
-1. Ask me your questions first, one at a time.
-2. After I've answered, read only the guides that apply to my project, not the whole repo.
-3. Research anything the guides don't cover, such as existing mods, loaders and my games'
-   exact versions, and check that it is current.
-4. Tell me what you found and what you recommend as the smallest first step.
-
-Don't write or change any code yet.
+1. Start by asking me all the questions you need, as short multiple-choice questions
+   where you can.
+2. Once I've answered, work on your own. Read only the guides that apply to my project,
+   research anything they don't cover (existing mods, loaders, my games' exact versions,
+   and check it's current), then plan and build.
+3. Only stop when you need a decision from me, need me to playtest, or need me to do
+   something myself. Ask before anything risky, like deleting files, changing game
+   folders or publishing.
+4. When you stop, ask one short question with 2 to 4 choices. Don't dump long
+   explanations, code or research on me.
+5. I'm a beginner. Use plain words and keep updates to a few lines.
 ```
 
 You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
