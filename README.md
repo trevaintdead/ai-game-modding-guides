@@ -9,8 +9,6 @@ These guides answer the questions people keep asking. If something is missing or
 
 Worth saying up front: everyone has their own methods, prompting style, and workflow. No set of guides can cover everything, so take the methods in these with a grain of salt and build your own from them.
 
-You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
-
 [![Licence: MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](LICENSE)
 [![Contributing welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Legal notice](https://img.shields.io/badge/Legal-notice%20and%20takedown%20process-blue.svg)](LEGAL.md)
@@ -29,6 +27,7 @@ You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would ra
 ## Don't want to read?
 
 Copy this into your agent and fill in the optional line:
+You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
 
 ```
 My Project Idea:
