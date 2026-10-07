@@ -20,7 +20,9 @@ A passthrough mod needs one thing: **a way to run your own code inside the host 
 | GTA San Andreas / Vice City / GTA III | RenderWare | [plugin-sdk](https://github.com/DK22Pac/plugin-sdk) (ASI / CLEO plugins) | C++ / C | Medium |
 | Most Unity games | Unity | [BepInEx](https://github.com/BepInEx/BepInEx) or [MelonLoader](https://github.com/LavaGang/MelonLoader) | C# | Easy or Medium |
 | Most Unreal games | Unreal | [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) | Lua | Medium |
-| Red Dead Redemption 2, GTA V, Cyberpunk | RE Engine | [REFramework](https://github.com/praydog/REFramework) | Lua or C# | Medium |
+| GTA V, Red Dead Redemption 2 | RAGE | [Ultimate ASI Loader](https://github.com/thirteenAG/Ultimate-ASI-Loader), plus [scripthookvdotnet](https://github.com/scripthookvdotnet/scripthookvdotnet) for .NET scripts | C++ / C# | Medium |
+| Most Capcom games: Resident Evil, Monster Hunter, Dragon's Dogma, Devil May Cry | RE Engine | [REFramework](https://github.com/praydog/REFramework) | Lua or C# | Medium |
+| Cyberpunk 2077 | REDengine | [WolvenKit](https://github.com/WolvenKit/WolvenKit), plus the official REDmod | C# or REDscript | Medium |
 | GameMaker Studio 1.4 and 2 | GameMaker | [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) | GML + tool | Medium on Windows only |
 | Ren'Py visual novels | Ren'Py | [Ren'Py SDK](https://www.renpy.org/doc/html/developer_tools.html) | Python | Easy |
 
@@ -32,7 +34,7 @@ Four of those loaders are big enough to be worth reading as projects in their ow
 |---|---:|---|---|
 | [BepInEx](https://github.com/BepInEx/BepInEx) | 8,777 | LGPL-2.1 | The default for Unity and XNA games. Most Unity mod tutorials assume it |
 | [tModLoader](https://github.com/tModLoader/tModLoader) | 5,700 | MIT | Terraria's official modding API, and a good model for how to version a mod API |
-| [REFramework](https://github.com/praydog/REFramework) | 5,575 | MIT | Covers every RE Engine game at once, which no other loader manages |
+| [REFramework](https://github.com/praydog/REFramework) | 5,575 | MIT | Spans Capcom's RE Engine family from one install, which no other loader does |
 | [MelonLoader](https://github.com/LavaGang/MelonLoader) | 4,237 | Apache-2.0 | The main alternative to BepInEx for Unity, and covers more title variants |
 
 Star counts as of October 2026. These four are established projects with years of history, unlike most of the AI-assisted examples in this repo, which are weeks old.
@@ -128,13 +130,26 @@ Terraria, Stardew Valley, Celeste and a lot of 2D indie games run on XNA, which 
 
 Both are well documented, both have large mod communities to read, and both mean the agent writes against a real API instead of guessing at internals.
 
-### RE Engine
+### RE Engine, RAGE and REDengine
 
-Rockstar's engine, shared by GTA V, Red Dead Redemption 2, Cyberpunk 2077 and Baldur's Gate 3.
+Three unrelated engines from three different companies. Find the one your game runs on.
 
-- **[REFramework](https://github.com/praydog/REFramework)** is a mod loader, scripting platform and VR layer that covers every RE Engine game from one install, which no other loader manages. Scripts in Lua or C#.
+**RE Engine is Capcom's.** It powers Resident Evil, Monster Hunter, Dragon's Dogma, Devil May Cry and Street Fighter 6.
 
-The scale is the point. Building something that works across six games with completely different content is a different engineering problem from a loader for one title.
+- **[REFramework](https://github.com/praydog/REFramework)** is a mod loader, scripting platform and VR layer covering that whole family from one install. Its supported list runs to 19 titles, all Capcom. Scripts in Lua or C#.
+
+**RAGE (Rockstar Advanced Game Engine) is separate, and older.** GTA V and Red Dead Redemption 2 use it, and it is not Capcom's RE Engine.
+
+- **[Ultimate ASI Loader](https://github.com/thirteenAG/Ultimate-ASI-Loader)** is the live ASI loader. It installs as a DLL in the game directory, and ASI files go in the game root or in a `scripts`, `plugins`, or `update` folder.
+- **[scripthookvdotnet](https://github.com/scripthookvdotnet/scripthookvdotnet)** sits on top of it and lets you write GTA V mods in C#, rather than in the native ABI the plain loader expects.
+- **[CodeWalker](https://github.com/dexyfex/CodeWalker)** reads RAGE assets and formats. It has not been pushed to since April 2025, so check it still does what you need.
+
+**REDengine is CD Projekt's, and unrelated to either.** Cyberpunk 2077 runs on it.
+
+- **[WolvenKit](https://github.com/WolvenKit/WolvenKit)** is the community tool that reads and writes REDengine's file formats. REDscript mods are plain text; WolvenKit handles the asset side.
+- **[REDmod](https://www.cyberpunk.net/en/modding-support)** is CD Projekt's own official modding tool, which installs with the game. Reach for it before the community tooling, since the publisher supports it.
+
+The scale is the point of any of these. One install covering nineteen games with completely different content is a different engineering problem from a loader for one title, and it is the sort of thing worth reading to see how it was done.
 
 ### Unreal Engine
 
