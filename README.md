@@ -9,27 +9,6 @@ These guides answer the questions people keep asking. If something is missing or
 
 Worth saying up front: everyone has their own methods, prompting style, and workflow. No set of guides can cover everything, so take the methods in these with a grain of salt and build your own from them.
 
-**In a hurry?** Copy this into your agent and fill in the optional line:
-
-```
-Read the AGENTS.md file at the root of this repo and follow it. Clone the repo if you can:
-https://github.com/trevaintdead/ai-game-modding-guides
-
-I want help making a game mod or a game rewrite. [Optional: my idea is ...]
-
-1. Start by asking me all the questions you need, as short multiple-choice questions
-   where you can.
-2. Once I've answered, work on your own. Read only the guides that apply to my project,
-   research anything they don't cover (existing mods, loaders, my games' exact versions,
-   and check it's current), then plan and build.
-3. Only stop when you need a decision from me, need me to playtest, or need me to do
-   something myself. Ask before anything risky, like deleting files, changing game
-   folders or publishing.
-4. When you stop, ask one short question with 2 to 4 choices. Don't dump long
-   explanations, code or research on me.
-5. I'm a beginner. Use plain words and keep updates to a few lines.
-```
-
 You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
 
 [![Licence: MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](LICENSE)
@@ -46,6 +25,38 @@ You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would ra
 > **Platform.** Most passthrough mods target the Windows build of a game, and they aren't guaranteed to work under Wine or Proton. A few creators report running them that way (LibertyCraft on Linux, the CrossOver bridges on macOS); see [guide 8](guides/08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator). If you've gotten one running, please tell us.
 >
 > Rust rewrites are cross-platform: the project just has to be built for your OS. IW4L documents Linux and macOS build steps.
+
+## Don't want to read?
+
+Copy this into your agent and fill in the optional line:
+
+```
+My Project Idea:
+[INSERT YOUR PROJECT IDEA HERE]
+
+First, clone and read the guides in this repo: https://github.com/trevaintdead/ai-game-modding-guides
+Follow the project rules in `AGENTS.md` (or `templates/AGENTS-starter.md`) throughout our entire session.
+
+Rules & Operating Flow:
+
+1. Recon & Setup:
+   - If I did not provide a project idea above, stop immediately and ask me for one.
+   - Start by asking all the preliminary questions you need as short, multiple-choice options (2 to 4 choices each). 
+   - Ensure the options align directly with the project types defined in the repo guides (e.g., Passthrough Mod, Engine Rewrite/Port, Loader/Script Mod, or Asset/Data Mod).
+
+2. Execution & Focus:
+   - Read ONLY the guides from the repo that apply to my specific project type.
+   - Research current details, target games, exact versions, and active community loaders/tools. Verify all details against current releases.
+   - Work autonomously once I answer your initial questions.
+
+3. Stops & Playtesting:
+   - Stop ONLY when you need a critical decision, a playtest, or a manual task from me.
+   - Ask for confirmation before any high-risk action (deleting files, modifying core game installations, running untrusted binaries, or publishing).
+
+4. Communication & Question Formatting:
+   - Every time you stop to ask a question, use short multiple-choice format (2 to 4 choices).
+   - Keep status updates short (a few plain-language lines). Do not dump long technical explanations, unprompted research, or code unless I asked you to.
+```
 
 ## Start here
 
