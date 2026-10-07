@@ -29,7 +29,9 @@ A passthrough mod needs one thing: **a way to run your own code inside the host 
 
 The Bethesda script extenders come from `afkmods.com`, and the silverlock.org links above are what SkyCraft and FalloutCraft point people at.
 
-**Read this before using me3.** Its project has a written policy that all LLM use is disallowed, across the code, the issue tracker, the discussions and the project's Discord. You can use the tool, but you cannot file an agent-written bug report, ask for help in its channels, or contribute agent-written code. That is the maintainers' call to make and it is not negotiable from the outside. Plan to debug on your own, and get your understanding from its documentation rather than its issue tracker. If that rules it out for you, Dark Souls III and Elden Ring have older community modding efforts still worth searching for by name.
+**Read this before using me3.** Its project has a written policy that all LLM use is disallowed, across the code, the issue tracker, the discussions and the project's Discord. You can use the tool, but you cannot file an agent-written bug report, ask for help in its channels, or contribute agent-written code. That is the maintainers' call to make and it is not negotiable from the outside. Plan to debug on your own, and get your understanding from its documentation rather than its issue tracker.
+
+If that rules you out, the fallback is thin. [EldenRingModLoader](https://github.com/techiew/EldenRingModLoader) is still there and loads DLL mods, but its last push was August 2024. [elden-proton](https://github.com/Cloudef/elden-proton) runs Elden Ring under Linux and went quiet in May 2025. For Dark Souls III, Sekiro and Armored Core VI there is no maintained alternative worth naming here, so on those titles the realistic route is asset editing or a rewrite rather than a loader.
 
 me3 is the successor to Mod Engine 2, which is discontinued. It is written in Rust and covers all five FromSoftware titles above from one install, so it is worth reading as a project even if you never run it.
 
