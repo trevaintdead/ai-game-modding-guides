@@ -27,6 +27,7 @@ Worth saying up front: everyone has their own methods, prompting style, and work
 ## Don't want to read?
 
 Copy this into your agent and fill in the optional line:
+
 You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
 
 ```
