@@ -5,9 +5,28 @@ Guides for two kinds of projects, both built with an AI coding agent via a harne
 - **Passthrough mods:** two games running at once and linked together, like [SkyCraft](https://github.com/chasmlol/SkyCraft) (Minecraft inside Skyrim).
 - **Rust rewrites and ports:** rebuilding a game's engine in Rust so it reads data from your own copy, like [IW4L](https://github.com/vladtrc/iw4L).
 
-These guides answer the questions people asked on the Discord. If something is missing or wrong, [open an issue](CONTRIBUTING.md) or send a pull request.
+These guides answer the questions people keep asking. If something is missing or wrong, [open an issue](CONTRIBUTING.md) or send a pull request.
 
-Worth saying up front: everyone has their own methods, prompting style, and workflow. We can't cover everything, so take the methods in these guides with a grain of salt and build your own from them.
+Worth saying up front: everyone has their own methods, prompting style, and workflow. No set of guides can cover everything, so take the methods in these with a grain of salt and build your own from them.
+
+**In a hurry?** Copy this into your agent and fill in the optional line:
+
+```
+Read the AGENTS.md file at the root of this repo and follow it. Clone the repo if you can:
+https://github.com/trevaintdead/ai-game-modding-guides
+
+I want help making a game mod or a game rewrite. [Optional: my idea is ...]
+
+1. Ask me your questions first, one at a time.
+2. After I've answered, read only the guides that apply to my project, not the whole repo.
+3. Research anything the guides don't cover, such as existing mods, loaders and my games'
+   exact versions, and check that it is current.
+4. Tell me what you found and what you recommend as the smallest first step.
+
+Don't write or change any code yet.
+```
+
+You can also point an agent straight at [`AGENTS.md`](AGENTS.md) if you would rather write the prompt yourself.
 
 [![Licence: MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](LICENSE)
 [![Contributing welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -38,7 +57,7 @@ Have a question you haven't seen answered yet? Go to the **[FAQ](guides/07-faq.m
 4. **Point it at an example project** ([SkyCraft](https://github.com/chasmlol/SkyCraft) for passthrough, [IW4L](https://github.com/vladtrc/iw4L) for rewrites) and tell it what you want.
 5. **Expect many rounds.** The first prompt rarely finishes the job. You playtest, report what happened, and the agent fixes it.
 6. **Never commit game files.** Your repo holds your code only. Players use their own copies.
-7. **Agents usually leave DRM and anti-cheat alone**, and online-only games are a no-go. We don't condone circumventing agent guardrails, piracy, or DRM. Some games with anti-cheat do allow offline modding through the game's own option; see [the rules](guides/06-rules-legal-and-publishing.md#online-play-and-anti-cheat).
+7. **Agents usually leave DRM and anti-cheat alone**, and online-only games are a no-go. Nothing here supports circumventing agent guardrails, piracy, or DRM. Some games with anti-cheat do allow offline modding through the game's own option; see [the rules](guides/06-rules-legal-and-publishing.md#online-play-and-anti-cheat).
 
 ## Guides
 
@@ -61,6 +80,7 @@ Have a question you haven't seen answered yet? Go to the **[FAQ](guides/07-faq.m
 | 14 | [Choosing a route](guides/14-choosing-a-route.md) | You're not sure whether your idea is passthrough, compositing, a rewrite or something else |
 | 15 | [Case studies: what each project actually did](guides/15-case-studies-what-each-project-actually-did.md) | You want versions, ownership and failures from real projects |
 | 16 | [Ownership, sync and rendering](guides/16-ownership-sync-and-rendering.md) | Something slides, flickers, falls through the floor or desyncs |
+| 17 | [The decompile system map](guides/17-decompile-system-map.md) | You're taking a game apart and need a reference for everything it involves |
 
 ## Legal
 
@@ -92,7 +112,7 @@ Drop these into your own project.
 | [IW4L](https://github.com/vladtrc/iw4L) | Rust/Bevy runtime for Modern Warfare 2 (2009), reading your own install. Experimental, and honest about it |
 | [gang-beasts-rust](https://github.com/muffinmxn/gang-beasts-rust) | Rust/Bevy rewrite with Python extractors and a whitelist `.gitignore` |
 | [benilla](https://github.com/samwhosung/benilla) | A large Rust/Bevy rewrite (a WoW 1.12.1 client) |
-| [universal-modder](https://github.com/rehan-remade/universal-modder) | Ten agent skills, a CLI, and a knowledge base of per-game field notes |
+| [universal-modder](https://github.com/rehan-remade/universal-modder) | Eleven agent skills, a CLI, and a knowledge base of per-game field notes |
 
 Finished open-source engine reimplementations, if you want to see what the long game looks like: [OpenMW](https://github.com/OpenMW/openmw), [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2), [OpenTTD](https://github.com/OpenTTD/OpenTTD).
 
@@ -114,7 +134,7 @@ Corrections to the guides themselves are better as a pull request. See [CONTRIBU
 
 Nobody has settled these. If you know the answer, post it on the Discord:
 
-- Does a detailed prompt or a short, loose one work better? [Both camps are quoted here.](guides/04-prompting-and-workflow.md#the-prompting-debate-as-members-put-it)
+- Does a detailed prompt or a short, loose one work better? [Both camps are quoted here.](guides/04-prompting-and-workflow.md#the-prompting-debate)
 - Which free model can finish a project?
 - How do you handle Unreal Engine games?
 

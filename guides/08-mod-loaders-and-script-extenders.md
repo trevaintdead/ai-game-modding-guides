@@ -1,6 +1,6 @@
 # 8. Mod Loaders and Script Extenders (Reference)
 
-This is the most repeated question on the Discord: *"what do I even install to put my code inside this game?"*
+This is the question people ask most: *"what do I even install to put my code inside this game?"*
 
 Read this page once and you can skip the hunting. It lists what each engine family gives you and how hard the job looks.
 
@@ -23,19 +23,26 @@ A passthrough mod needs one thing: **a way to run your own code inside the host 
 | GTA V, Red Dead Redemption 2 | RAGE | [Ultimate ASI Loader](https://github.com/thirteenAG/Ultimate-ASI-Loader), plus [scripthookvdotnet](https://github.com/scripthookvdotnet/scripthookvdotnet) for .NET scripts | C++ / C# | Medium |
 | Most Capcom games: Resident Evil, Monster Hunter, Dragon's Dogma, Devil May Cry | RE Engine | [REFramework](https://github.com/praydog/REFramework) | Lua or C# | Medium |
 | Cyberpunk 2077 | REDengine | [WolvenKit](https://github.com/WolvenKit/WolvenKit), plus the official REDmod | C# or REDscript | Medium |
+| Elden Ring, Dark Souls III, Sekiro, Armored Core VI, Elden Ring Nightreign | FromSoftware proprietary | [me3](https://github.com/garyttierney/me3) | Rust for the framework, your language for mods | Hard |
 | GameMaker Studio 1.4 and 2 | GameMaker | [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) | GML + tool | Medium on Windows only |
 | Ren'Py visual novels | Ren'Py | [Ren'Py SDK](https://www.renpy.org/doc/html/developer_tools.html) | Python | Easy |
 
 The Bethesda script extenders come from `afkmods.com`, and the silverlock.org links above are what SkyCraft and FalloutCraft point people at.
 
+**Read this before using me3.** Its project has a written policy that all LLM use is disallowed, across the code, the issue tracker, the discussions and the project's Discord. You can use the tool, but you cannot file an agent-written bug report, ask for help in its channels, or contribute agent-written code. That is the maintainers' call to make and it is not negotiable from the outside. Plan to debug on your own, and get your understanding from its documentation rather than its issue tracker. If that rules it out for you, Dark Souls III and Elden Ring have older community modding efforts still worth searching for by name.
+
+me3 is the successor to Mod Engine 2, which is discontinued. It is written in Rust and covers all five FromSoftware titles above from one install, so it is worth reading as a project even if you never run it.
+
+Its difficulty is marked Hard for a specific reason. A mod is a native DLL plus, optionally, replacement asset files, and a `.me3` profile file says where to find them. There is no scripting layer, so there is nothing to write a few lines against: you are producing a compiled binary that attaches to a game with no public API. The framework itself is well documented, and the profile format is plain TOML you can generate, but the mod side is native work on a closed-source game.
+
 Four of those loaders are big enough to be worth reading as projects in their own right, which matters if you want to see how a mature one is put together:
 
 | Loader | Stars | Licence | Why it's worth a look |
 |---|---:|---|---|
-| [BepInEx](https://github.com/BepInEx/BepInEx) | 8,777 | LGPL-2.1 | The default for Unity and XNA games. Most Unity mod tutorials assume it |
-| [tModLoader](https://github.com/tModLoader/tModLoader) | 5,700 | MIT | Terraria's official modding API, and a good model for how to version a mod API |
-| [REFramework](https://github.com/praydog/REFramework) | 5,575 | MIT | Spans Capcom's RE Engine family from one install, which no other loader does |
-| [MelonLoader](https://github.com/LavaGang/MelonLoader) | 4,237 | Apache-2.0 | The main alternative to BepInEx for Unity, and covers more title variants |
+| [BepInEx](https://github.com/BepInEx/BepInEx) | 8,790 | LGPL-2.1 | The default for Unity and XNA games. Most Unity mod tutorials assume it |
+| [tModLoader](https://github.com/tModLoader/tModLoader) | 5,705 | MIT | Terraria's official modding API, and a good model for how to version a mod API |
+| [REFramework](https://github.com/praydog/REFramework) | 5,582 | MIT | Spans Capcom's RE Engine family from one install, which no other loader does |
+| [MelonLoader](https://github.com/LavaGang/MelonLoader) | 4,239 | Apache-2.0 | The main alternative to BepInEx for Unity, and covers more title variants |
 
 Star counts as of October 2026. These four are established projects with years of history, unlike most of the AI-assisted examples in this repo, which are weeks old.
 
@@ -98,7 +105,7 @@ The main passthrough projects in these guides target Windows builds of their gam
 
 That splits two ways:
 
-- **Passthrough mods** need the host game running, so they're bound to the platform the game runs on. Mod loaders are Windows tools. A few projects do run the Windows game through a translation layer, and their creators report it working (creator reports):
+- **Passthrough mods** need the host game running, so they're bound to the platform the game runs on. Mod loaders are Windows tools. A few projects do run the Windows game through a translation layer, with their creators reporting it working:
   - **[LibertyCraft](https://github.com/mrborghini/libertycraft)** runs GTA IV under Wine on Linux, with a POSIX version of SkyCraft's shared-memory bridge.
   - **[NewVegasCraft](https://github.com/Davozh/new-vegascraft)** runs Fallout: New Vegas under Proton on Linux. Its setup needed a native 32-bit `d3dcompiler_47` to compile shaders.
   - **The [CrossOver bridges](https://github.com/justbustin/minecraft-crossover-bridge)** run Elden Ring and Monster Hunter: World in CrossOver on macOS while Minecraft runs natively, sharing a file-backed memory area across the Wine boundary.

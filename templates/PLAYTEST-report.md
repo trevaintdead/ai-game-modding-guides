@@ -33,7 +33,7 @@ The agent can't watch the game for you ([guide 5](../guides/05-testing-and-troub
 - [be specific: multiplayer, other GPUs, other game versions, loading saves...]
 
 ## Verdict
-[One or two sentences. "Works on my machine for scenarios 1–4" is a fine verdict.]
+[One or two sentences. "Works on my machine for scenarios 1 through 4" is a fine verdict.]
 ```
 
 ## What counts as tested

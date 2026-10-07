@@ -68,7 +68,7 @@ Three reasons:
 2. **No sunk cost.** The old chat has already committed to an approach and will keep defending it. A fresh chat has no ego attached.
 3. **The agent can plan.** Given a clean statement of the problem it can offer a different approach. In a long chat it tends to keep tweaking the failing thing.
 
-Members report this works best with the less capable models, but everyone uses it.
+This helps most with the less capable models, but everyone uses it.
 
 ## Other times to write one
 

@@ -1,6 +1,6 @@
 # 12. Worked example: IW4L, an AI-assisted Rust rewrite
 
-This case study is about [IW4L](https://github.com/vladtrc/iw4L), a standalone Rust runtime for Call of Duty: Modern Warfare 2 (2009). Around 138 commits at the time of writing, roughly 732 stars, Apache-2.0, and actively developed.
+This case study is about [IW4L](https://github.com/vladtrc/iw4L), a standalone Rust runtime for Call of Duty: Modern Warfare 2 (2009). Around 160 commits at the time of writing, roughly 800 stars, Apache-2.0, and actively developed.
 
 It is unfinished, and says so: *"Gameplay remains incomplete; expect missing behavior, bugs and desyncs."* It ships no game assets. You point it at a copy of MW2 that you already own and it reads that installation's maps, models, textures and weapons into its own engine.
 

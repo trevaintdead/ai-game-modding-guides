@@ -110,7 +110,7 @@ If a rights holder asks you to change or remove something, do it. gang-beasts-ru
 
 ## Other places to publish
 
-- **Steam Workshop and similar:** Make sure nothing in your upload is copyrighted game content. One member suggests asking your agent to write an easy asset extractor for players to run, instead of shipping assets. Check each platform's own rules.
+- **Steam Workshop and similar:** Make sure nothing in your upload is copyrighted game content. Asking your agent to write an easy asset extractor for players to run beats shipping assets. Check each platform's own rules.
 - **Releases on GitHub:** Many projects ship a zip on their Releases page. Check that it doesn't contain game files before you publish it.
 
 ## Checklist before you publish

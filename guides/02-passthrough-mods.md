@@ -13,7 +13,7 @@ Say you want Minecraft inside Skyrim:
 
 Because both games run together, **every player needs a copy of both**.
 
-One member described the idea well: two games exchanging state, where neither works without the other running. A normal mod would have one game containing the other's content.
+In short: two games exchanging state, where neither works without the other running. A normal mod would have one game containing the other's content.
 
 ## How the two games talk
 
@@ -67,7 +67,7 @@ Without one, the agent may have to reverse engineer the game. Members do use the
 ## Step by step
 
 1. **Pick the host game and the gameplay game.** Check that both are single-player or offline, and that the host has a loader.
-2. **Look for existing work.** Search for a mod loader, script extender, or existing mods for the host game. Two members lost hours by not doing this first.
+2. **Look for existing work.** Search for a mod loader, script extender, or existing mods for the host game. Skipping this is the most common way to lose an evening here.
 3. **Install both games** and confirm they run normally. Install the host game's mod tools if it has them, and test the loader with an existing mod before you write anything.
 4. **Open your agent in a new, empty project folder.**
 5. **Send the starter prompt** (below).
@@ -78,7 +78,7 @@ Without one, the agent may have to reverse engineer the game. Members do use the
 
 ## Starter prompt
 
-Experienced members say you don't need a perfect prompt. Keep it plain. Something like:
+You don't need a perfect prompt. Keep it plain. Something like:
 
 ```
 I want to make a passthrough mod like SkyCraft (https://github.com/chasmlol/SkyCraft), but for [Game A] and [Game B].
@@ -121,7 +121,7 @@ Steps 1 to 3 are the whole trick. Once one value crosses between the games, the 
 
 ## Ideas that don't work, and why
 
-These come up on the Discord constantly:
+These come up constantly:
 
 | Idea | Why not |
 |------|---------|

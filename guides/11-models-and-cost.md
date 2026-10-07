@@ -7,8 +7,8 @@ What to pay, and what to point it at. Everything here was checked against the pr
 | Budget | What to get | What you get |
 |--------|--------------|--------------|
 | Free | [OpenCode](https://opencode.ai) with a free model | Enough to try things and follow the guides |
-| About $10 | [OpenCode Go](https://opencode.ai/go) | Our pick for value. DeepSeek V4.1 Flash and friends at high volume |
-| $20 | [Claude Pro](https://claude.com/pricing) | The best single subscription. Our pick if you're buying one plan |
+| About $10 | [OpenCode Go](https://opencode.ai/go) | The best value. DeepSeek V4.1 Flash and friends at high volume |
+| $20 | [Claude Pro](https://claude.com/pricing) | The best single subscription, and the pick if you're buying one plan |
 | $40 | OpenCode Go Plus | More of the same models. Rarely the best call over Claude Pro |
 | $100 | Claude Max 5x | For when $20 runs out mid-project |
 | $200 | Claude Max 20x | Only once you've proven you need it |
@@ -30,11 +30,11 @@ Go Plus is $40 with higher limits. Only worth it if you're running many agents i
 
 ## $20: Claude Pro
 
-Our default recommendation if you're buying one subscription. Most people doing this work are on it.
+The default recommendation if you're buying one subscription. Most people doing this work are on it.
 
 $20 monthly, or $17 monthly on annual billing ($200 up front). Claude Code is included.
 
-Limits are a rolling five-hour session window plus a weekly cap that resets at a fixed time assigned to your account. One member reports getting about 3 to 4 hours of constant use per five-hour window on a top model. Another says $20 was more than enough for a from-scratch basketball game.
+Limits are a rolling five-hour session window plus a weekly cap that resets at a fixed time assigned to your account. Expect roughly 3 to 4 hours of constant use per five-hour window on a top model. A from-scratch basketball game came in comfortably on the $20 tier.
 
 Treat the session window as the real constraint. The weekly limit rarely bites if you hand chats over with a [`STATUS.md`](../templates/STATUS-handoff.md) file instead of letting one grow for a week.
 
@@ -50,14 +50,14 @@ The reasoning is that each tier is worth it only if you exhausted the one below.
 | Max 5x | $100 | 5x |
 | Max 20x | $200 | 20x |
 
-Two things members get wrong here:
+Two things people get wrong here:
 
 - **The 5x and 20x multiples apply to the five-hour session window**, not to your weekly allowance. The $200 plan's weekly allowance is roughly double the $100 plan's, not twenty times.
 - **A weekly limit sits on top of the session window.** Upgrading multiplies your session capacity; it doesn't remove the weekly cap.
 
 Max is monthly only. Upgrading mid-cycle charges prorated.
 
-If you're paying per token instead, a route that works: OpenRouter with a strong open model. One member uses VS Code plus Roo Code with OpenRouter and a DeepSeek model because a Claude plan was out of reach.
+If you're paying per token instead, a route that works: OpenRouter with a strong open model. VS Code plus Roo Code with OpenRouter and a DeepSeek model is a common combination when a Claude plan is out of reach.
 
 ### Two things that change the bill more than the model
 
@@ -82,9 +82,9 @@ cache hit rate in the usage output.
 
 One caveat on Claude specifically: Opus 5.5 uses a newer tokenizer that produces roughly 30% more tokens for the same text than earlier models did. Comparing two models on cost without checking which tokenizer they use is comparing different units.
 
-## Where we don't currently recommend OpenAI
+## OpenAI and ChatGPT models
 
-We're not recommending OpenAI or ChatGPT models right now, for two reasons: our experience is that they're less capable on this kind of work than Claude at comparable tiers, and they give less usable usage per subscription.
+Not recommended right now, for two reasons: they perform worse on this kind of work than Claude at comparable tiers, and they give less usable usage per subscription.
 
 **If you already have a ChatGPT subscription, keep it.** The models are very good and the allowance is decent. There's no reason to cancel. Don't switch for this recommendation.
 
@@ -95,7 +95,7 @@ This is a community read, not a benchmark result, and it will go stale. If you d
 Before spending anything:
 
 - **Free models inside OpenCode.** Several are free for a limited time, including DeepSeek-adjacent options and some stealth models. Free models get cut off and rate-limited, so treat them as good for learning the workflow and bad for a serious project.
-- **Local models on your own hardware.** One experienced member says they don't work well for this. A 12 GB GPU isn't enough for a good local coding model. Your GPU being a 5090 makes no difference to a cloud model, since that work runs on the provider's servers.
+- **Local models on your own hardware.** They don't work well for this. A 12 GB GPU isn't enough for a good local coding model. Your GPU being a 5090 makes no difference to a cloud model, since that work runs on the provider's servers.
 - **Pay-per-token APIs.** Cheap enough to try something, and you stop when you stop. Good for a weekend project, bad for anything long.
 - **Cheaper Claude tiers.** Running Sonnet instead of a top model costs less per token and is usually good enough for the bulk of a project. Save the expensive model for the part where you're stuck.
 
@@ -109,10 +109,10 @@ Subscription plans aren't only about price. Three things are easier on a plan an
 
 The reason people stay on a subscription is the ceiling, not the price. Predictable, short work is cheaper per token.
 
-## What we don't know yet
+## Open questions
 
 - Which free model is genuinely best inside OpenCode. Nobody has run the comparison.
-- Whether free plans can complete a real project. Most people here hit limits fast.
+- Whether free plans can complete a real project. Most people hit limits fast.
 - Whether local models can handle a real project on 12 GB of VRAM.
 - Whether any of this holds on Windows vs Linux. Every project in these guides is Windows-only anyway.
 
@@ -126,3 +126,7 @@ If you find out, post it on the Discord or open a pull request.
 - [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing), which is the fuller page and has the per-model table the marketing page hides
 
 Subscribe to a monthly plan rather than annual until you know how much you use. The annual discount is 15% on Claude Pro, which isn't worth paying for a plan you might outgrow in a month.
+
+---
+
+<sub>[Spot a mistake? [Edit this page on GitHub](https://github.com/trevaintdead/ai-game-modding-guides/edit/main/guides/11-models-and-cost.md).](https://github.com/trevaintdead/ai-game-modding-guides/edit/main/guides/11-models-and-cost.md) &middot; [Open an issue](https://github.com/trevaintdead/ai-game-modding-guides/issues/new) &middot; Part of [AI Game Modding Guides](https://github.com/trevaintdead/ai-game-modding-guides)</sub>

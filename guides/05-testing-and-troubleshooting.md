@@ -4,7 +4,7 @@
 
 The agent can't watch a game in real time, so it's poor at judging how things look and feel. It may not notice a missing particle effect, a wrongly rotated model, or janky movement. Experienced members handle this two ways:
 
-- **Ask for telemetry.** Have the agent log as much as possible (positions, damage numbers, events, frame times) so it can check its own work without looking at the screen. One member has the agent read damage numbers from the logs while hitting a training dummy.
+- **Ask for telemetry.** Have the agent log as much as possible (positions, damage numbers, events, frame times) so it can check its own work without looking at the screen. A useful pattern is having it read damage numbers from the logs while you hit a training dummy.
 - **Playtest yourself.** If the agent tries to test visually, stop it and say you'll playtest. You verify faster than it can, either way.
 
 Sorting out UI and menus early also helps, because it makes testing simpler later.

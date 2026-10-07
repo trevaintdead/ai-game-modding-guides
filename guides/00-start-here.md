@@ -13,7 +13,7 @@ The agent writes the code. You tell it what you want, it writes and builds, and 
 - playtest, because the agent can't see or feel a game
 - keep the project organized so you can recover when something goes wrong
 
-Experienced members say the core of it is simple: install the games, open an agent, give it an example project, and say what you want. In practice that turns into a long series of problems to fix with the agent. Expect that.
+The core of it is simple: install the games, open an agent, give it an example project, and say what you want. In practice that turns into a long series of problems to fix with the agent. Expect that.
 
 ## Pick your path
 
@@ -27,16 +27,16 @@ Start with a passthrough mod if you're unsure. You see something working sooner.
 
 ### Three pages worth reading first
 
-These answer most of the questions people arrive with:
+These answer the questions people ask most:
 
-1. **[Which loaders and script extenders exist](08-mod-loaders-and-script-extenders.md)**: decides whether your game idea is even realistic. This is the most repeated question on the Discord.
+1. **[Which loaders and script extenders exist](08-mod-loaders-and-script-extenders.md)**: decides whether your game idea is even realistic. This is the question people ask most.
 2. **[A full passthrough walkthrough](09-worked-example-passthrough-mod.md)**: the whole process end to end, with the prompts.
 3. **[Posting your project](10-posting-your-project.md)**: what a finished project needs before others can use it.
 
 ## The steps, in order
 
 1. **Pick your games.** Check that they're single-player or offline, and that you own them.
-2. **Search for existing work first.** Look for mod loaders, existing mods, or decomp projects for your games. Two members said they wasted hours by skipping this.
+2. **Search for existing work first.** Look for mod loaders, existing mods, or decomp projects for your games. Skipping this is the most common way to waste an evening.
 3. **Set up an AI agent** on your PC. See [guide 1](01-choose-and-set-up-an-ai-agent.md). Costs and model choice are in [guide 11](11-models-and-cost.md).
 4. **Install the games** and make sure they run normally.
 5. **Open the agent in a new, empty project folder** and use a starter prompt from guide 2 or 3.
@@ -46,7 +46,7 @@ These answer most of the questions people arrive with:
 
 ## Honest expectations
 
-- **Time:** a task can take anywhere from a few minutes to many hours, depending on the model and how hard you make it think. One member reported about 3-4 hours of back-and-forth before an Elden Ring + Spider-Man mashup worked, and described it as jank but working.
+- **Time:** a task can take anywhere from a few minutes to many hours, depending on the model and how hard you make it think. An Elden Ring plus Spider-Man mashup took about 3-4 hours of back-and-forth to get working, and the result was janky but functional. Treat that as one data point rather than a typical runtime.
 - **Cost:** agents use paid plans or API credits, and plans have usage limits. See [guide 11](11-models-and-cost.md) for what to actually spend.
 - **Coding knowledge:** you don't need it to start, but a little helps. You can always ask the agent to explain what it did.
 - **Rough edges:** early projects are experimental. Back up your saves.

@@ -24,9 +24,11 @@ You don't have to use them. C and C++ work fine. People pick Rust and Bevy becau
 
 Not every project uses Bevy. It is the most common choice in this space, but you'd pick a different one if you wanted to. IW4L also uses wgpu for rendering on top of Bevy, and translates the original game's Direct3D 9 shader bytecode to WGSL.
 
+Rust is also common in the loaders themselves. **[me3](https://github.com/garyttierney/me3)**, the successor to Mod Engine 2, is a Rust framework covering Elden Ring, Dark Souls III, Sekiro, Armored Core VI and Elden Ring Nightreign, and its workspace is a readable set of small crates: a launcher, an IPC layer, a mod host and a mod protocol. It is not a rewrite of the game, but the way it is put together is a good model for the kind of tooling this guide keeps pointing at. [Guide 8](08-mod-loaders-and-script-extenders.md) covers it as a loader, along with one restriction you need to know about before you plan around it.
+
 ## Be realistic about size
 
-A rewrite is a big job. IW4L is around 138 commits in and still describes itself as experimental, with missing behaviour, bugs and desyncs. Benilla is described as complete, with hundreds of commits behind it. Start with a goal that fits in a sentence, like "load and show the first level and walk around in it." Grow from there.
+A rewrite is a big job. IW4L is around 160 commits in and still describes itself as experimental, with missing behaviour, bugs and desyncs. Benilla is described as complete, with hundreds of commits behind it. Start with a goal that fits in a sentence, like "load and show the first level and walk around in it." Grow from there.
 
 ## How these projects are usually built
 
@@ -46,19 +48,24 @@ If you have a working game and want to link a second one to it, you want [guide 
 2. **The game has a source release.** Some studios shipped their engines or games as source, legally and publicly. Check.
 3. **You need the executable's logic.** Only then is decompiling on the table.
 
-Members routinely skip steps 1 and 2 and lose whole evenings to it. Two separate people on the Discord said the same thing: *look for an existing decomp or format project before you start.* Ask the agent to search first. It's good at finding community projects.
+People routinely skip steps 1 and 2 and lose whole evenings to it. The rule worth following is simple: *look for an existing decomp or format project before you start.* Ask the agent to search first. It's good at finding community projects.
+
+Two places worth searching by hand, because the agent will not know about either:
+
+- **[GameDecompLibrary](https://github.com/solarfren69420/GameDecompLibrary)** is a catalog of 304 decompilation projects, tools and source releases, each entry tagged with its method and each figure sourced. Check it before you plan anything.
+- **[Guide 17](17-decompile-system-map.md)** covers everything a decompile turns out to involve, which is worth reading before you estimate the work.
 
 Step 1 is worth preferring even when step 3 would work, for a reason that has nothing to do with effort. **Studying a game through its interface involves no copying at all**, so there is no copyright question to answer. The moment you run a decompiler, a copy of protected expression exists on your disk, and you have moved from a clean position into one that depends on a fair use argument. Prefer observation wherever the question allows it. [Guide 13](13-reverse-engineering-and-the-law.md#black-box-grey-box-white-box) covers the distinction and the cases behind it.
 
 ### When you do need it
 
-Tools, in the order members mention them:
+Tools, in the order worth trying:
 
 | Tool | Cost | Notes |
 |------|------|-------|
 | **Ghidra** | Free, open source | The one people use. Needs a Java runtime, and a processor module for some older consoles. Has an [MCP server](https://github.com/bethington/ghidra-mcp) |
 | **IDA Pro** | Commercial, expensive | The industry standard, with an [official MCP server](https://github.com/HexRaysSA/ida-mcp) from Hex-Rays. Free tier is limited |
-| **Binary Ninja** | Commercial, cheaper than IDA | Worth knowing about, though nobody here has reported using it |
+| **Binary Ninja** | Commercial, cheaper than IDA | Worth knowing about, though there is no worked example here using it |
 
 **The bigger question is what the code is.** Picking the wrong tool for the language wastes days, so check this before installing anything:
 
@@ -79,7 +86,7 @@ Two limits on Cpp2IL worth knowing before you commit an afternoon: its analysis 
 
 Driving a decompiler through an MCP server is what changes the workflow. Without one you paste disassembly into a chat and paste it back. With one the agent reads the decompiler directly, so ask it to find a function or rename everything it understands.
 
-One member asked the agent to decompile a folder "using the correct tools," and it identified the platform and format, installed Ghidra with the right processor module, and ran the process. That's a realistic workflow.
+Asking the agent to decompile a folder "using the correct tools" is a realistic request: it identified the platform and format, installed Ghidra with the right processor module, and ran the process. That is roughly the workflow you are aiming for.
 
 ### A realistic prompt
 
@@ -90,7 +97,7 @@ Before installing anything: research whether there is existing community
 documentation, an open-source library, or a decomp project for this game's
 file formats. Tell me what you found first.
 
-If nothing exists and we do need to look at the executable, use Ghidra.
+If nothing exists and the executable is the only option, use Ghidra.
 Work in [gitignored folder]. Do not write anything into this repo except
 a notes file describing what you learned.
 ```
@@ -121,7 +128,7 @@ Read [guide 6](06-rules-legal-and-publishing.md) before going down this path. It
 ```
 I want to build a Rust rewrite of [Game] that reads its data from my own installed copy at [path] at runtime. Use [IW4L / gang-beasts-rust / benilla] as a reference for structure: [links].
 
-Rules: never copy game assets or decompiled code into the repo. Use a whitelist .gitignore. Credit anything we learn from and keep licenses.
+Rules: never copy game assets or decompiled code into the repo. Use a whitelist .gitignore. Credit anything you learn from and keep licenses.
 
 First, look for existing documentation, file format specs, and decomp projects for this game, and tell me what's out there before you start building.
 ```

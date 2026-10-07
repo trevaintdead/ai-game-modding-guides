@@ -228,7 +228,7 @@ See [guide 10](10-posting-your-project.md) for posting it, and [guide 6](06-rule
 
 ## What actually happened, honestly
 
-- One member reported about 3-4 hours of back-and-forth before an Elden Ring + Spider-Man mashup worked, and called it jank but working. Treat that as one data point, not a typical runtime.
+- An Elden Ring + Spider-Man mashup took about 3-4 hours of back-and-forth before it worked, and the result was jank but playable. One data point, not a typical runtime.
 - The wall people hit tends to be the first time something crosses the boundary and lands in the wrong coordinate space, or the two games' frame clocks drifting apart. Both are normal.
 - When you hit one: stop repeating prompts. Write a `STATUS.md`, open a fresh chat, hand it over. See [guide 5](05-testing-and-troubleshooting.md).
 

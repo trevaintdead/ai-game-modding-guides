@@ -26,7 +26,7 @@ Read [guide 14](14-choosing-a-route.md) first if you haven't picked a route.
 
 - **Reuse the representation, not the method.** Both projects send triangles and voxels to Minecraft. Only the way they get that geometry from the host differs. That's why the guest side could be kept.
 - **Keep the fixed protocol layout, but don't assume the meaning stayed the same.** LibertyCraft changed the magic number and added GTA-specific events and flags. Matching layout isn't compatibility with an old SkyCraft build.
-- **Keep the history honest.** An early commit "fixed" a Games for Windows Live connection loop; a later commit says the real cause was a different add-on and removes it. Write down the correction, not just the first theory.
+- **Keep the history honest.** An early commit "fixed" a Games for Windows Live connection loop; a later commit says the real cause was a different add-on and removes it. Write down the correction alongside the original theory rather than overwriting it. A revert keeps the first commit in the history and adds the correction on top, which is the right shape: both stay readable.
 - **Credit lineage.** LibertyCraft keeps SkyCraft's attribution. Which exact SkyCraft commit it forked from isn't recorded, because the first commit has no parent. If you fork, write down the upstream commit you started from.
 
 ## Case 2. A frame-compositing bridge you can read end to end: Minecraft × GTA V

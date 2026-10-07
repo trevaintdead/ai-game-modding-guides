@@ -2,13 +2,13 @@
 
 ## There are no magic prompts
 
-The experienced members agree on this much: you tell the agent what you want, and it does it. People who have shipped these projects link an example repo, say "I want this for [my games]," and let the agent work.
+You tell the agent what you want, and it does it. People who have shipped these projects link an example repo, say "I want this for [my games]," and let the agent work.
 
 They disagree about how much detail belongs in the first message. Both sides are below, so you can try each.
 
 ## Two schools of thought
 
-**Short and loose.** Some members say a huge, perfectly written first prompt is a trap. They dictate by voice, ramble a bit, and send a messy message. Their reasoning: the agent knows the efficient path, and over-specifying can send it down the wrong one. One member's current prompt in a long session was roughly "there's still some stuff missing, right? ok let's add it."
+**Short and loose.** A huge, perfectly written first prompt can be a trap. You dictate by voice, ramble a bit, and send a messy message. The reasoning: the agent knows the efficient path, and over-specifying can send it down the wrong one. A prompt running in a long session right now is roughly "there's currently still some stuff missing, right? ok let's add it."
 
 **Detailed with context.** Others argue that more context produces a better result, and that good prompting saves time and usage. They care about efficiency, especially on plans with usage limits. Nobody has settled this, and it would make a good thing to test and write up.
 
@@ -41,24 +41,24 @@ Ask the agent to update them as it goes.
 
 ## The handoff trick for stuck chats
 
-When a chat gets confused or very long, one member recommends:
+When a chat gets confused or very long:
 
 1. Ask the agent to write the project's status and the exact problem it's stuck on into a detailed `.md` file.
 2. Open a **fresh chat** and give it that file.
 3. Ask it to read the file and suggest ways to troubleshoot.
 
-They say this helps most with less capable models. Another member closes and reopens chats to clear old context. A template is in [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md).
+This helps most with less capable models. Closing and reopening chats to clear old context works too. A template is in [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md).
 
 ## Saving usage
 
 - Long chats carry all their history, so they use more of your limit. Starting fresh with a handoff file helps.
 - Close and reopen chats when you switch topics.
-- One member suggests asking the agent, early on, to set up a documentation standard and to keep token efficiency in mind without losing functionality.
+Ask the agent, early on, to set up a documentation standard and to keep token efficiency in mind without losing functionality.
 - Don't treat any of this as a rule. Plans and models change.
 
 ## How long things take
 
-It depends on the model, how hard it thinks, and how big the task is. Members report anywhere from about 5 minutes to many hours for a single piece of work.
+It depends on the model, how hard it thinks, and how big the task is. Anything from about 5 minutes to many hours is normal for a single piece of work.
 
 ## When you hand over to a fresh chat
 
@@ -95,11 +95,11 @@ See [guide 5](05-testing-and-troubleshooting.md). The short version: the agent i
 
 ---
 
-## The prompting debate, as members put it
+## The prompting debate
 
 **This section is open. It's meant to be argued with.**
 
-A long thread on this got heated on the Discord. Rather than pretend we settled it, here are the quotes. Read both, try both, and post your results on the Discord.
+This is genuinely unsettled, and naming that is more useful than picking a side. Here are the arguments in full. Read both, try both, and post your results on the Discord.
 
 > **One member:** "guys theres no tricks or special prompts, you literally just tell the ai to do stuff and itll do it. Thats all i do"
 >
@@ -131,7 +131,7 @@ Names are removed on purpose. These are real people's Discord messages, and quot
 
 They also aren't verbatim: Discord's own capitalisation has been tidied up in a couple of places. The wording is otherwise unchanged, but don't treat them as transcripts.
 
-The Karpathy quote is quoted at second hand. The member pasted it into chat and the link matches the text they pasted, but nobody here has read the original.
+The Karpathy quote is second hand. It was pasted into chat and the link matches the text that was pasted, but nobody has read the original post.
 
 ### What the disagreement is actually about
 
@@ -141,7 +141,7 @@ Read side by side, those quotes contain two separate arguments:
 
 **2. Does it save time?** The context side's strongest argument is usage limits. If a vague prompt makes the agent wander and you burn your 5-hour window on dead ends, "efficient" wins, even if the vague prompt would have got there eventually. The 0.1% point cuts against the whole debate: prompt length is probably not the thing worth optimising.
 
-### Our honest read
+### Where this lands
 
 Not a verdict. Something you can try either way:
 
@@ -159,7 +159,7 @@ A controlled comparison would be welcome here. Log the same task twice with a lo
 - how much of your usage limit it consumed
 - what it got wrong
 
-Post it on the Discord and we'll fold the best ones into this page. A GitHub issue works too, if you'd rather have it written down somewhere permanent.
+Post it on the Discord and the best ones get folded into this page. A GitHub issue works too, if you'd rather have it written down somewhere permanent.
 
 ### A few things that came up in the thread
 

@@ -20,7 +20,7 @@ If your project needs game content, it reads it from the player's own install. T
 
 ## Before you post: the pre-flight
 
-Go through this list. It takes five minutes and prevents every problem we've seen.
+Go through this list. It takes five minutes and prevents the problems that come up most.
 
 - [ ] `git status` is clean and there's no uncommitted game data
 - [ ] Repo is scanned for large files: `git ls-files | xargs du -h | sort -rh | head -20`

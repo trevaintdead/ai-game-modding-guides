@@ -8,7 +8,7 @@ You do not need to be a professional developer. This repo is young and has no co
 
 ## What's wanted
 
-**Experienced developers writing proper technical guides.** This is the biggest gap. `toast` said it directly on the Discord: *pretty daunting, will it be technically thorough for those who would want to learn?* If that question is aimed at you, this repo is the place to answer it.
+**Experienced developers writing proper technical guides.** This is the biggest gap. The question that comes up most is whether any of this will be technically thorough enough for someone who wants to learn, rather than just getting a working demo. If that question is aimed at you, this repo is the place to answer it.
 
 Specifically useful:
 
@@ -44,7 +44,7 @@ Specifically useful:
 - Backticks for file names, commands, and log output.
 - Tables for anything you'd otherwise compare in a list.
 
-Match the tone of the existing guides. They're deliberately plain, and they say "members report" rather than asserting facts they can't back up. That keeps them useful when things change.
+Match the tone of the existing guides. They're deliberately plain, and they write to you directly rather than reporting what other people said. When something is genuinely uncertain, say so in the sentence rather than hiding the uncertainty behind "members report".
 
 ## Where things go
 
@@ -64,11 +64,12 @@ Match the tone of the existing guides. They're deliberately plain, and they say 
 | Which kind of project an idea is | [14-choosing-a-route.md](guides/14-choosing-a-route.md) |
 | Real project case studies, with versions and limits | [15](guides/15-case-studies-what-each-project-actually-did.md) |
 | Symptom → cause notes for sync, rendering and collision | [16](guides/16-ownership-sync-and-rendering.md) |
+| Reference: everything a decompile involves | [17](guides/17-decompile-system-map.md) |
 | Project files people copy | `templates/` |
 
 ## Open debates
 
-[Guide 4](guides/04-prompting-and-workflow.md#the-prompting-debate-as-members-put-it) has a long section on whether detailed prompts or short loose prompts work better. Members disagree sharply. If you run a controlled comparison, that would be a useful contribution and it would be welcome. Post the results on the Discord or open a pull request.
+[Guide 4](guides/04-prompting-and-workflow.md#the-prompting-debate) has a long section on whether detailed prompts or short loose prompts work better. Opinion is sharply divided. If you run a controlled comparison, that would be a useful contribution and it would be welcome. Post the results on the Discord or open a pull request.
 
 [Guide 8](guides/08-mod-loaders-and-script-extenders.md) is missing plenty. If you know that a game has a good modding setup that isn't listed, add it. Include the loader, its language, and a link.
 
@@ -83,4 +84,4 @@ By contributing you agree your work is published under the repo's [MIT licence](
 
 ## Code of conduct
 
-Be useful and be decent. No gatekeeping, no "just tell the AI to do it" as a dismissal, and no sneering at beginners. A lot of people here are beginners, and being the one who helps is the whole point.
+Be useful and be decent. No gatekeeping, no "just tell the AI to do it" as a dismissal, and no sneering at beginners. Most people arriving here are beginners, and being the one who helps is the whole point.

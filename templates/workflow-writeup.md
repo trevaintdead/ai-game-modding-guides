@@ -1,6 +1,6 @@
 # Workflow Write-Up Template
 
-Use this when you're sharing a finished project. It's what the Discord is short of: almost nobody documents *how* they got there.
+Use this when you're sharing a finished project. It is the thing this community is short of: almost nobody documents *how* they got there.
 
 A feature list proves the thing works. A workflow write-up is what lets someone else do it too. Write one even if your project is small and imperfect. A rough honest one beats a polished marketing page.
 
