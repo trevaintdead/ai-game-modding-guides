@@ -20,7 +20,7 @@ Worth saying up front: everyone has their own methods, prompting style, and work
 >
 > **Before you publish anything**, read [LEGAL.md](LEGAL.md). It covers what this repository does and does not cover, and what to do if a publisher contacts you or your repo gets taken down. None of it is legal advice.
 >
-> **Platform.** Most passthrough mods target the Windows build of a game, and they aren't guaranteed to work under Wine or Proton. If you've gotten one running that way, please tell us.
+> **Platform.** Most passthrough mods target the Windows build of a game, and they aren't guaranteed to work under Wine or Proton. A few creators report running them that way (LibertyCraft on Linux, the CrossOver bridges on macOS); see [guide 8](guides/08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator). If you've gotten one running, please tell us.
 >
 > Rust rewrites are cross-platform: the project just has to be built for your OS. IW4L documents Linux and macOS build steps.
 
@@ -58,6 +58,9 @@ Have a question you haven't seen answered yet? Go to the **[FAQ](guides/07-faq.m
 | 11 | [Models and what to spend](guides/11-models-and-cost.md) | You're deciding what to pay, or which model to point the agent at |
 | 12 | [Worked example: IW4L, an AI-assisted Rust rewrite](guides/12-worked-example-rust-rewrite.md) | You want an honest Rust rewrite case study |
 | 13 | [Reverse engineering and the law](guides/13-reverse-engineering-and-the-law.md) | You're decompiling something and want to know where the lines actually are |
+| 14 | [Choosing a route](guides/14-choosing-a-route.md) | You're not sure whether your idea is passthrough, compositing, a rewrite or something else |
+| 15 | [Case studies: what each project actually did](guides/15-case-studies-what-each-project-actually-did.md) | You want versions, ownership and failures from real projects |
+| 16 | [Ownership, sync and rendering](guides/16-ownership-sync-and-rendering.md) | Something slides, flickers, falls through the floor or desyncs |
 
 ## Legal
 
@@ -73,6 +76,9 @@ Drop these into your own project.
 - [`templates/STATUS-handoff.md`](templates/STATUS-handoff.md): the note you give a fresh chat when the old one gets stuck
 - [`templates/MODLOG-template.md`](templates/MODLOG-template.md): a running log of what changed and what was tested
 - [`templates/workflow-writeup.md`](templates/workflow-writeup.md): for sharing how you made your project
+- [`templates/BRIDGE-CONTRACT.md`](templates/BRIDGE-CONTRACT.md): who owns what, units, messages and lifecycle, written before the bridge code
+- [`templates/PLAYTEST-report.md`](templates/PLAYTEST-report.md): what you tested, on which versions, and what you didn't
+- [`templates/ATTRIBUTION-and-lineage.md`](templates/ATTRIBUTION-and-lineage.md): what you inherited, from which commit, and what's new
 
 ## Examples worth studying
 

@@ -132,7 +132,7 @@ Tell it you'll playtest, and have it log numbers and events instead. See [guide 
 **How do I make it run smoother?**
 Give the agent frame-time logs from both processes and ask it to profile before changing anything. OWCraft's notes say skipping the presentation of the hidden window took Minecraft from 25 to 60 fps.
 
-The gameplay game still has to render, though. It's hidden, not headless, because the host composites its offscreen output into its own depth buffer. Making it render nothing would break the visual premise.
+The gameplay game still has to run its client, though. It's hidden, not headless: it builds the meshes the host draws, or the picture the host pastes in, plus the hand and HUD (see [guide 9](09-worked-example-passthrough-mod.md#step-8-make-it-not-stutter)). Making it render nothing would break the visual premise. For other causes of stutter, see [guide 16](16-ownership-sync-and-rendering.md).
 
 Other wins are sending deltas instead of full state, and fixing your update rate. See [guide 9](09-worked-example-passthrough-mod.md#step-8-make-it-not-stutter).
 

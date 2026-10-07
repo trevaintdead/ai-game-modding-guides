@@ -23,7 +23,7 @@ Experienced members say the core of it is simple: install the games, open an age
 | Rebuild a game's engine so it runs on its own | [Rust rewrites](03-rust-rewrites-and-ports.md) | Bigger job. Reads your game files at runtime |
 | Play what others made | #share-your-projects on the Discord | Use the project's own install instructions |
 
-Start with a passthrough mod if you're unsure. You see something working sooner.
+Start with a passthrough mod if you're unsure. You see something working sooner. If you can't tell which kind of project your idea is, [guide 14](14-choosing-a-route.md) sorts the seven common routes.
 
 ### Three pages worth reading first
 

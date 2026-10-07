@@ -83,4 +83,4 @@ Members report this works best with the less capable models, but everyone uses i
 - Ask the agent to update `MODLOG.md` as it works. The log is your long-term memory, so the chat doesn't have to be.
 - Keep the rules in `AGENTS.md` rather than retyping them every session.
 
-See [`MODLOG-template.md`](MODLOG-template.md) for the running log and [`AGENTS-starter.md`](AGENTS-starter.md) for the rules file.
+See [`MODLOG-template.md`](MODLOG-template.md) for the running log, [`AGENTS-starter.md`](AGENTS-starter.md) for the rules file, [`BRIDGE-CONTRACT.md`](BRIDGE-CONTRACT.md) for who owns what, and [`PLAYTEST-report.md`](PLAYTEST-report.md) for recording what you tested.

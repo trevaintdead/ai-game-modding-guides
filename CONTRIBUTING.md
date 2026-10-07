@@ -61,6 +61,9 @@ Match the tone of the existing guides. They're deliberately plain, and they say 
 | Loaders, script extenders, engine families | [08](guides/08-mod-loaders-and-script-extenders.md) |
 | Full walkthroughs | [09](guides/09-worked-example-passthrough-mod.md) |
 | Getting a project seen | [10-posting-your-project.md](guides/10-posting-your-project.md) |
+| Which kind of project an idea is | [14-choosing-a-route.md](guides/14-choosing-a-route.md) |
+| Real project case studies, with versions and limits | [15](guides/15-case-studies-what-each-project-actually-did.md) |
+| Symptom → cause notes for sync, rendering and collision | [16](guides/16-ownership-sync-and-rendering.md) |
 | Project files people copy | `templates/` |
 
 ## Open debates
@@ -71,7 +74,7 @@ Match the tone of the existing guides. They're deliberately plain, and they say 
 
 Two more known gaps:
 
-- **Non-Windows.** Every example project is Windows-only. Anyone with a working setup on Linux or macOS would be filling a real hole.
+- **Non-Windows.** The main example projects are Windows-only. A few creators report Linux (Wine/Proton) and macOS (CrossOver) setups, listed in [guide 8](guides/08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator). A step-by-step write-up of one would fill a real hole.
 - **Games with publishing restrictions.** Halo MCC and the Xbox decomp projects have terms that limit what a port can use, and nobody has written that up.
 
 ## Licence

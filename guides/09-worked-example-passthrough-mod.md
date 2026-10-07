@@ -4,7 +4,7 @@ This walks through building a passthrough mod from nothing, in a fixed order. Th
 
 The architecture notes come from [SkyCraft's DESIGN.md](https://github.com/chasmlol/SkyCraft/blob/main/docs/DESIGN.md), so you can check them against the source. SkyCraft is Skyrim plus Minecraft, which maps to Game A and Game B below.
 
-**These examples target Windows.** Every reference project for passthrough mods does, because the loaders are Windows tools. See [guide 8](08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator).
+**These examples target Windows.** The main reference projects for passthrough mods do, because the loaders are Windows tools. A few creators report Linux and macOS setups through Wine, Proton or CrossOver. See [guide 8](08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator).
 
 ## Step 0: Pick a pair that can work
 
@@ -127,7 +127,7 @@ If the header doesn't match, both sides stop and say so rather than continuing.
 
 The intuition is that the host game owns the player, because it's the one you look at. SkyCraft does the opposite: **Minecraft is authoritative for player position and physics.** Skyrim draws the world and provides collision, but the player puppet is moved to wherever Minecraft says.
 
-Decide this before you write the transport, because reversing it later means rewriting both halves.
+Decide this before you write the transport, because reversing it later means rewriting both halves. Write it into [`templates/BRIDGE-CONTRACT.md`](../templates/BRIDGE-CONTRACT.md), together with how control goes back to the host for cutscenes, vehicles and menus.
 
 Player position first, because it's easy to see and easy to verify. Send it every render frame:
 
@@ -184,7 +184,7 @@ After each one: **playtest, then commit.** If a step breaks, `git revert` is ins
 
 Passthrough mods run two games and a message channel at once, so performance is the real enemy.
 
-**The gameplay game still renders.** It does not run headless. SkyCraft hides Minecraft's window but keeps rendering into offscreen textures, which get composited into the host's depth buffer so the host's walls correctly hide your blocks. "Run it with no rendering" breaks the whole visual premise.
+**The gameplay game still runs its client.** It does not run headless. In SkyCraft 0.1.2, Minecraft's client builds the block meshes and textures that Skyrim then draws in its own renderer (that's how Skyrim's walls hide your blocks), and it renders the hand, HUD and menus offscreen as a picture laid over Skyrim's frame. Projects that paste in Minecraft's whole picture instead ("frame compositing", see [guide 14](14-choosing-a-route.md)) need its renderer even more. "Run it with no rendering" breaks either design.
 
 That makes the hidden window's *presentation* the first thing to look at. OWCraft skips presenting Minecraft's hidden window while linked, which took Minecraft from 25 to 60 fps. Other things worth asking about:
 
@@ -204,6 +204,8 @@ Say it once at the start rather than optimising at the end:
 Game B is only supplying physics and inventory. It doesn't need to load its
 own terrain. Cap its memory and tell me what to set.
 ```
+
+For the specific symptoms (sliding images, missing depth, stuck cutscenes, NPCs walking through blocks) and what other projects found was causing them, see [guide 16](16-ownership-sync-and-rendering.md).
 
 ## Step 9: Make saving and loading work
 

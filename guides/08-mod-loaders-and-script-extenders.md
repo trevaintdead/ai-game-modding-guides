@@ -92,14 +92,19 @@ Outer Wilds is Unity, not Creation Engine. OWCraft, the third project in this fa
 
 ### Windows is the common denominator
 
-Every passthrough project referenced in these guides targets Windows: SkyCraft, FalloutCraft, OWCraft, and GTA San AnSkateas.
+The main passthrough projects in these guides target Windows builds of their games: SkyCraft, FalloutCraft, OWCraft, and GTA San AnSkateas.
 
 That splits two ways:
 
-- **Passthrough mods** need the host game running, so they're bound to the platform the game runs on. Mod loaders are Windows tools. Running the game under Wine or Proton is untested territory and nobody here has reported getting one working.
+- **Passthrough mods** need the host game running, so they're bound to the platform the game runs on. Mod loaders are Windows tools. A few projects do run the Windows game through a translation layer, and their creators report it working (creator reports):
+  - **[LibertyCraft](https://github.com/mrborghini/libertycraft)** runs GTA IV under Wine on Linux, with a POSIX version of SkyCraft's shared-memory bridge.
+  - **[NewVegasCraft](https://github.com/Davozh/new-vegascraft)** runs Fallout: New Vegas under Proton on Linux. Its setup needed a native 32-bit `d3dcompiler_47` to compile shaders.
+  - **The [CrossOver bridges](https://github.com/justbustin/minecraft-crossover-bridge)** run Elden Ring and Monster Hunter: World in CrossOver on macOS while Minecraft runs natively, sharing a file-backed memory area across the Wine boundary.
+
+  Expect platform-specific fixes like these, and say exactly which translation layer and version you used.
 - **Rust rewrites** are cross-platform, since the engine is your own code. IW4L documents Linux and macOS build steps, so it builds on both. Be aware it ships a prebuilt Windows release as the easy path, and that a *completed* rewrite still won't save you if the game only runs on Windows: your own install has to be readable from whatever OS you're on.
 
-If you've gotten a passthrough mod running on Linux or macOS, that's genuinely useful and the page should say so.
+If you've gotten a passthrough mod running on Linux or macOS, that's genuinely useful and the page should say so. [Guide 15](15-case-studies-what-each-project-actually-did.md) has more detail on the projects above.
 
 ### Unity
 

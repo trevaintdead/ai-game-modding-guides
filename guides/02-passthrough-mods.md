@@ -9,7 +9,7 @@ Say you want Minecraft inside Skyrim:
 1. Skyrim runs normally and draws everything on screen.
 2. Minecraft runs with its window hidden and simulates the player, blocks, and combat.
 3. A plugin inside Skyrim and a mod inside Minecraft pass information back and forth over shared memory. Minecraft is authoritative for the player; Skyrim provides collision and NPCs.
-4. Skyrim draws what Minecraft says should be there, compositing Minecraft's offscreen render into its own depth buffer.
+4. Skyrim draws the Minecraft blocks itself. In SkyCraft 0.1.2, Minecraft exports its world meshes and textures and the Skyrim plugin draws them inside Skyrim's own renderer, so they get Skyrim's depth, lighting and shadows. Only Minecraft's hand, HUD and menus are captured as a picture and laid over the top. Some other projects paste Minecraft's whole picture in instead; [guide 14](14-choosing-a-route.md) explains the difference.
 
 Because both games run together, **every player needs a copy of both**.
 
@@ -34,6 +34,8 @@ Three rules that come out of that layout, and that you should ask the agent for 
 **Both sides must survive the other dying.** Heartbeats detect a crash. If Minecraft dies, Skyrim hands control back to the player instead of leaving a puppet with no brain. If Skyrim dies, Minecraft pauses. Decide this on day one, because retrofitting a failure path into a working transport is miserable.
 
 > A full step-by-step walkthrough of building one of these is in [guide 9](09-worked-example-passthrough-mod.md).
+>
+> "Passthrough" covers several different designs: swapping state, pasting the guest's picture into the host, or having the host draw the guest's meshes. [Guide 14](14-choosing-a-route.md) explains the difference, and [guide 15](15-case-studies-what-each-project-actually-did.md) shows how SkyCraft, LibertyCraft, the CrossOver bridges and others did it.
 
 ## Examples to study
 
@@ -126,7 +128,7 @@ These come up on the Discord constantly:
 | Any online or multiplayer game as the gameplay side | Out of scope entirely. See [guide 6](06-rules-legal-and-publishing.md) |
 | A host game with no mod loader and no source | You'd be reverse engineering the whole engine first |
 | Two games in different engines on different runtimes, as your first attempt | Every reference project pairs a native host with one Java or .NET gameplay game. A mismatched pair doubles the problem: the host side needs a loader, and the gameplay side needs a mod API, and now you have to find both at once |
-| Running the gameplay game truly headless | The visuals are the whole point. SkyCraft hides the window but still renders into an offscreen texture, because the host needs depth to composite against. Without rendering there's no mod |
+| Running the gameplay game truly headless | The visuals are the whole point. SkyCraft hides the window but its client still builds the block meshes Skyrim draws, and renders the hand and HUD offscreen. Without the client there's no mod |
 | A mod that needs to work on Linux or macOS | The loaders are Windows tools. See [guide 8](08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator) |
 | Shipping the second game's assets in the release | You ship code and a setup script. The player supplies the game. See [guide 10](10-posting-your-project.md) |
 

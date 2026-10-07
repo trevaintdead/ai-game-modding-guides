@@ -53,10 +53,13 @@ Mods and extractors are tied to specific game versions. Some games need a downgr
 **Antivirus flagged a download.**
 Unsigned tools and bundled launchers are sometimes flagged. In one SkyCraft issue, a user reported a Malwarebytes flag on a release zip that didn't show up on a re-scan, and an online scanner showed no detections. It's still worth checking where a file came from and opening an issue on the project.
 
+**The guest world slides, flickers, shows through walls, or the player falls through the floor.**
+These have known usual causes: a camera pose from the wrong frame, unreadable or already-cleared depth, collision that only goes one way, or a stale image left on screen. [Guide 16](16-ownership-sync-and-rendering.md) lists them with what each project did.
+
 **It works but it's slow or stutters.**
 Expected, and usually fixable. Ask for frame-time logs from both processes and tell it to profile before changing anything. OWCraft's notes say skipping the presentation of the hidden window took Minecraft from 25 to 60 fps.
 
-The gameplay game still has to render. It's hidden, not headless, because the host composites its offscreen output into its own depth buffer.
+The gameplay game still has to run its client. It's hidden, not headless: depending on the design it builds the meshes the host draws, or renders the picture the host pastes in, plus the hand and HUD.
 
 Other wins are sending deltas instead of full state, and fixing your update rate. See [guide 9](09-worked-example-passthrough-mod.md#step-8-make-it-not-stutter).
 
@@ -77,6 +80,8 @@ Post on the Discord, or open a GitHub issue. Include:
 - the error message or logs
 
 A `STATUS.md` written by the handoff trick in [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md) already contains most of that. Answers come back quicker, and it works in a Discord thread or a GitHub issue just as well as in a fresh chat.
+
+For anything you tested, a [`PLAYTEST-report.md`](../templates/PLAYTEST-report.md) says which versions and settings you used and what you didn't test.
 
 ---
 
