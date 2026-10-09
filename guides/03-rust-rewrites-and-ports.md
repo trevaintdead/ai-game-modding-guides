@@ -24,11 +24,19 @@ You don't have to use them. C and C++ work fine. People pick Rust and Bevy becau
 
 Not every project uses Bevy. It is the most common choice in this space, but you'd pick a different one if you wanted to. IW4L also uses wgpu for rendering on top of Bevy, and translates the original game's Direct3D 9 shader bytecode to WGSL.
 
+**Bevy's performance problems are the main reason to consider leaving it.** Projects built on it often hit frame rate trouble that is genuinely hard to fix, and chasing it can eat the project. The usual cause is putting too much in the ECS: if you shove every entity and per-frame query through Bevy's system graph, you pay for it every tick.
+
+The escape is that Bevy is really two things, an ECS and a renderer. Projects that outgrow it keep `bevy_ecs`, which is where your game logic lives, and swap the rendering and app shell for something else. That is a contained refactor rather than a rewrite, because the entity code does not change. Worth knowing before you commit to it, so you find out which situation you are in.
+
 Rust is also common in the loaders themselves. **[me3](https://github.com/garyttierney/me3)**, the successor to Mod Engine 2, is a Rust framework covering Elden Ring, Dark Souls III, Sekiro, Armored Core VI and Elden Ring Nightreign, and its workspace is a readable set of small crates: a launcher, an IPC layer, a mod host and a mod protocol. It is not a rewrite of the game, but the way it is put together is a good model for the kind of tooling this guide keeps pointing at. [Guide 8](08-mod-loaders-and-script-extenders.md) covers it as a loader, along with one restriction you need to know about before you plan around it.
 
 ## Be realistic about size
 
 A rewrite is a big job. IW4L is around 160 commits in and still describes itself as experimental, with missing behaviour, bugs and desyncs. Benilla is described as complete, with hundreds of commits behind it. Start with a goal that fits in a sentence, like "load and show the first level and walk around in it." Grow from there.
+
+A full game with real depth is a multi-month project for one person working with an agent, not a weekend. Scope it as though you are building a small game that happens to reuse an original's assets, because that is what it is.
+
+If you are starting from a decompilation, think hard about whether you want one. The point of matching the original exactly is to recover its behaviour, but if your actual goal is a better version of the game rather than a faithful copy, most projects are better off rewriting from the start and keeping only the data files. Faithful decompilation is a multi-month effort that needs a group. A rewrite from your own format readers is a multi-month effort you can finish alone.
 
 ## How these projects are usually built
 
@@ -83,6 +91,8 @@ Tools, in the order worth trying:
 Two limits on Cpp2IL worth knowing before you commit an afternoon: its analysis does not work for games targeting Unity 2020.2 or later, and it produces pseudocode and textual analysis rather than real IL.
 
 **Read the real thing, don't guess.** Decompiler output, the actual data file, a memory read or a GPU capture is the specification. Write down what you learn as you go, with the names, IDs, offsets and formats, because you will need it again in an hour.
+
+Say this to the agent explicitly. Models will cheerfully invent a plausible struct layout or a made-up offset when they are unsure, and the result compiles, runs, and is wrong in a way that takes hours to find. A prompt that says *match the original, and read the real files rather than guessing* cuts down on that noticeably.
 
 Driving a decompiler through an MCP server is what changes the workflow. Without one you paste disassembly into a chat and paste it back. With one the agent reads the decompiler directly, so ask it to find a function or rename everything it understands.
 

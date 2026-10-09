@@ -2,6 +2,8 @@
 
 **This is a reference document, not a guide.** It is longer than the rest of this repo on purpose. It exists to be looked up rather than read through, so if you are wondering where to start, read [guide 3](03-rust-rewrites-and-ports.md) instead and come back here when you hit a wall.
 
+**Before you start, decide whether you want a decompile or a rewrite.** They are different jobs with very different costs, and this page is about the harder one. Matching decompilation is a multi-month effort that in practice needs a group of people. A rewrite that reads the original's data files through your own readers is the same order of months but achievable by one person. If your goal is a better game rather than a faithful copy, rewrite and skip the matching work entirely.
+
 Forty-six areas, each listing what has to be worked out and why. Sections keep their original numbering, so you can point someone at "number 33" and they will find the same thing you did.
 
 Star counts quoted in this page are as of 9 October 2026. They are there to show which projects have traction, not to be precise, and they move.
