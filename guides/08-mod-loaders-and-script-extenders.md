@@ -74,7 +74,7 @@ A loader is the comfortable route, not the only one. Work down this list and tak
 
 The order matters. Plenty of ideas that look like they need a native hook are really a data-file edit, and data edits don't need a loader at all.
 
-Before you commit to any of this, search whether anyone has already done it. A field-note knowledge base exists for exactly this: [universal-modder](https://github.com/rehan-remade/universal-modder) ships one with notes per game covering the versions that worked, the route chosen, and the gotchas, searchable with `um kb search "<game>"`.
+Before you commit to any of this, search whether anyone has already done it. Ask your agent to search rather than guessing, because it does not know what exists unless it looks.
 
 ## Why this decides whether your idea is realistic
 

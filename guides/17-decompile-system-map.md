@@ -611,13 +611,13 @@ In practice this is a file, not a database. [zeldaret/oot](https://github.com/ze
 
 ## 44. Knowledge base
 
-Do not make every person rediscover the same thing.
+Do not make every person rediscover the same thing, including you on the fourth attempt at the same function.
 
 ```
 /wiki  /functions  /formats  /assets  /shaders  /maps  /physics  /network  /tests
 ```
 
-Agents can query this too, which is the practical argument for keeping it in files rather than in someone's head.
+Keep it in files rather than in someone's head. That is the whole argument for writing it down, and it holds whether or not anything reads it back automatically.
 
 [zeldaret/oot](https://github.com/zeldaret/oot) is a good model: a `docs/` directory with a decompilation tutorial, a documentation style guide, compiler notes, retail version tables, and a `Doxyfile` generating reference documentation from the source comments. Its progress is published to a public site, so the state of the project is visible without reading the repository.
 
@@ -639,7 +639,7 @@ Binary
   -> Repeat
 ```
 
-Running several agents in parallel, one per subsystem, all feeding a shared knowledge base, is a natural idea and this repo has no evidence it works. Finished projects report one agent working through many rounds instead. Take the sequential pipeline as the useful part. [Guide 13](13-reverse-engineering-and-the-law.md#doing-this-with-an-agent) explains why one agent that has read decompiled output is structurally a dirty room, and what splitting specification from implementation across two sessions does about that.
+Running several agents in parallel, one per subsystem, all feeding a shared knowledge base, is a natural idea and this repo has no evidence it works. Decompilation is the one area where people do run agents in parallel, and it is not what makes the job work. The sequential pipeline below is the part worth keeping. [Guide 13](13-reverse-engineering-and-the-law.md#doing-this-with-an-agent) explains why one agent that has read decompiled output is structurally a dirty room, and what splitting specification from implementation across two sessions does about that.
 
 ## 46. A sensible project layout
 

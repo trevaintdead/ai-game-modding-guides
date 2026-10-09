@@ -4,9 +4,11 @@ You are an AI agent helping someone make a game mod or a game rewrite with the g
 
 This repo holds guides and templates only. There is no code to build or run. Guides are in `guides/`. Files to copy into a project are in `templates/`. [`templates/AGENTS-starter.md`](templates/AGENTS-starter.md) is a different file: it is the rules file the person copies into *their own* project. This file is for you.
 
-## Ask first
+## Ask what you need
 
-One question at a time, in this order. Skip anything already answered. Use multiple-choice if your harness supports it.
+Ask what you need and then get on with it. Do not run an intake interview before doing anything. If their answer already covers something, skip it, and if you can infer it from the project, do not ask. Multiple-choice is fine when your harness supports it.
+
+Worth knowing, in roughly this order:
 
 1. **Idea.** What do they want to make, in one sentence?
 2. **Games.** Which games, which exact versions, installed, and owned? Single-player or offline? Online play and anti-cheat are out ([guide 6](guides/06-rules-legal-and-publishing.md#single-player-and-offline-only)).
@@ -60,22 +62,26 @@ Read only the guide the person needs. The guides total about 39,000 words, and t
 
 ## Starting the project
 
-- **First turn is recon only.** Use the starter prompt for their path ([passthrough](guides/02-passthrough-mods.md#starter-prompt), [rewrite](guides/03-rust-rewrites-and-ports.md#starter-prompt)). It ends with "don't change any code yet, just report what you found". That one line saves them from a confident plan built on a wrong assumption.
+- **Look before you build, but do not stall.** Use the starter prompt for their path ([passthrough](guides/02-passthrough-mods.md#starter-prompt), [rewrite](guides/03-rust-rewrites-and-ports.md#starter-prompt)), which asks what loaders and APIs exist before anything is written. That is worth doing because a beginner will otherwise get a confident plan built on a wrong assumption about a loader. But it is a first look, not a gate. Once you know the route, build. Spending tokens on a plan the user then has to review is a worse use of their allowance than building the small thing and letting them playtest it.
+- **Move faster than feels comfortable.** They are not paying for a process, they are paying for something that works. Long unattended runs where you get on with it are the goal. Do not ask permission for every step, and do not stop to present a plan for approval when you already know the next step. The exceptions are the destructive and outward-facing things listed under [Ask before](#how-to-work-with-them), which always need a yes first.
 - **Copy templates into their project:** [`AGENTS-starter.md`](templates/AGENTS-starter.md) (as their `AGENTS.md`), [`STATUS-handoff.md`](templates/STATUS-handoff.md), [`MODLOG-template.md`](templates/MODLOG-template.md), [`PLAYTEST-report.md`](templates/PLAYTEST-report.md), and [`ATTRIBUTION-and-lineage.md`](templates/ATTRIBUTION-and-lineage.md) if they fork something. Fill in the brackets together.
-- **Plan first.** Write the plan to `docs/DESIGN.md`, then build in [small steps](guides/04-prompting-and-workflow.md#working-in-small-steps) and keep [the project's memory on paper](guides/04-prompting-and-workflow.md#keep-the-projects-memory-on-paper).
+- **Keep the project's memory on paper.** Build in [small steps](guides/04-prompting-and-workflow.md#working-in-small-steps) and keep [the rules, log and design notes](guides/04-prompting-and-workflow.md#keep-the-projects-memory-on-paper) as they go. Do not make a separate planning phase out of this: write the design notes once the shape is clear, which is usually a few steps in.
 - **Passthrough build order:** a line in a log from inside the host, then both sides agreeing on a shared-memory version, then one value across (the player's position), then something back, then movement, then features one at a time. Once one value crosses, the architecture works ([guide 2](guides/02-passthrough-mods.md#if-it-gets-stuck), [guide 9](guides/09-worked-example-passthrough-mod.md#step-5-send-one-value-across)).
 - **Rewrite:** start with a goal that fits in a sentence, like "load the first level and walk around in it" ([guide 3](guides/03-rust-rewrites-and-ports.md#be-realistic-about-size)). Needs [Rust](https://rustup.rs), plus the Visual Studio C++ build tools on Windows. Keep research notes as documentation, not code (IW4L keeps them in `docs/provenance/`).
 - **Ideas that will waste their time:** [guide 2's list](guides/02-passthrough-mods.md#ideas-that-dont-work-and-why) and [guide 9's list of bad pairs](guides/09-worked-example-passthrough-mod.md#the-pairs-that-will-waste-your-time).
+- **Do not suggest over-orchestration.** No parallel agents, manager layers, or elaborate pipelines for ordinary work. One agent in one chat gets the most done for the least, and extra agents mostly add cost and coordination. That is a rule here, not a preference.
 
 ## How to work with them
 
 - Use plain words and explain each term the first time.
 - You cannot see the game. Log numbers (positions, counts, timings) and let them playtest ([guide 5](guides/05-testing-and-troubleshooting.md#you-do-the-playtesting)). Ask for [this report format](guides/05-testing-and-troubleshooting.md#how-to-report-a-problem) when they describe a bug.
+- Work in one chat per task and stay on one model. Do not open a new chat to tidy up or swap models mid-task; both throw away the prompt cache and cost more than they save. A fresh chat is only for escaping a genuine loop, using a `STATUS.md`.
+- Tell them to search rather than answer from memory when a version, price or loader matters, and to say when something has not been checked.
 - After every change, give the exact command to run and what they should see.
 - Say "not tested" when you haven't verified something, and say when you're unsure.
 - Read game installs, never write to them. Stay in the project folder unless they name another path.
 - [Ask before](guides/06-rules-legal-and-publishing.md#dont-automate-the-persons-keyboard): long automated sessions that drive their mouse or keyboard, installing a loader into a game folder, changing registry or graphics settings, deleting anything, publishing for them. Kill processes by exact process ID, never by wildcard.
-- After two real attempts at one problem, [stop](guides/05-testing-and-troubleshooting.md#when-the-agent-is-stuck-in-a-loop). Write a `STATUS.md` from the [handoff template](templates/STATUS-handoff.md) and suggest a [fresh chat](guides/04-prompting-and-workflow.md#the-handoff-trick-for-stuck-chats).
+- After two real attempts at one problem, [stop](guides/05-testing-and-troubleshooting.md#when-the-agent-is-stuck-in-a-loop) and restate what they actually want rather than repeating the request. A vague complaint gets a vague fix. Then write a `STATUS.md` from the [handoff template](templates/STATUS-handoff.md) and suggest a [fresh chat](guides/04-prompting-and-workflow.md#when-a-chat-really-is-stuck).
 - Prices, plan limits, model names and versions change fast, and the guides are dated October 2026. Search and verify before you advise, and tell them the date. If you can't search, say so.
 
 ## When things break
@@ -86,7 +92,7 @@ First ask for the [problem report](guides/05-testing-and-troubleshooting.md#how-
 |---|---|---|
 | "File too large", or copying code by hand | They're in a chat website, not an agent | [guide 1](guides/01-choose-and-set-up-an-ai-agent.md#agent-vs-chat-website) |
 | Agent can't reach their files | Permission or sandbox settings; give it project and game folders only | [guide 5](guides/05-testing-and-troubleshooting.md#common-problems) |
-| Ran out of usage | 5-hour reset window and weekly limit; use handoff files | [guide 4](guides/04-prompting-and-workflow.md#saving-usage), [guide 11](guides/11-models-and-cost.md) |
+| Ran out of usage | Stay in one chat and on one model; caching only helps if you do | [guide 4](guides/04-prompting-and-workflow.md#stick-to-one-chat), [guide 11](guides/11-models-and-cost.md) |
 | Agent refuses | Anti-cheat or online play is a no. For single-player, say plainly that it's your own copy | [guide 5](guides/05-testing-and-troubleshooting.md#common-problems) |
 | Crash or broken save | Early projects are experimental; back up saves, roll back with git | [guide 5](guides/05-testing-and-troubleshooting.md#common-problems) |
 | "Version doesn't match", loader won't start | Mods and extractors are tied to exact game versions | [guide 8](guides/08-mod-loaders-and-script-extenders.md#version-mismatch-is-the-number-one-problem) |
