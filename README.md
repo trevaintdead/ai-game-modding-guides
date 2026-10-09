@@ -179,7 +179,7 @@ You do need to be willing to describe problems clearly and to spend most of your
 
 Guides can only cover so much. For anything specific to your setup, ask in **#support-help** or post your project in the **#share-your-projects** channel on the [chasm server](https://discord.gg/ccFpNC26Ts). That's where people post problems and projects.
 
-Include your games and exact versions, the loaders, the agent and model, what you tried, and the logs. If the chat got stuck, the `STATUS.md` trick in [guide 4](guides/04-prompting-and-workflow.md#the-handoff-trick-for-stuck-chats) writes most of that for you.
+Include your games and exact versions, the loaders, the agent and model, what you tried, and the logs. If the chat got stuck, the `STATUS.md` trick in [guide 4](guides/04-prompting-and-workflow.md#when-a-chat-really-is-stuck) writes most of that for you.
 
 Corrections to the guides themselves are better as a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).
 

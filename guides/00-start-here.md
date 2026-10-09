@@ -46,7 +46,7 @@ These answer the questions people ask most:
 
 ## Honest expectations
 
-- **Time:** a task can take anywhere from a few minutes to many hours, depending on the model and how hard you make it think. An Elden Ring plus Spider-Man mashup took about 3-4 hours of back-and-forth to get working, and the result was janky but functional. Treat that as one data point rather than a typical runtime.
+- **Time:** a task can take anywhere from a few minutes to many hours, depending on the model and how hard you make it think. An Elden Ring + Spider-Man mashup took about 3-4 hours of back-and-forth to get working, and the result was jank but playable. Treat that as one data point rather than a typical runtime.
 - **Cost:** agents use paid plans or API credits, and plans have usage limits. See [guide 11](11-models-and-cost.md) for what to actually spend.
 - **Coding knowledge:** you don't need it to start, but a little helps. You can always ask the agent to explain what it did.
 - **Rough edges:** early projects are experimental. Back up your saves.
