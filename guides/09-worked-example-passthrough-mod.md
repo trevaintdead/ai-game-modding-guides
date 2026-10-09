@@ -166,6 +166,10 @@ Two games talking. Everything after this is features.
 
 **Keep one schema, in one place.** Define the messages once and generate both sides' code from them, or write the structs by hand in both languages and accept that they'll drift the first time you add a field. SkyCraft keeps the definition in `protocol/messages.*` and generates a C++ header and a Java class from it, with a layout test in CI on both sides. Everything is fixed-size and little-endian, so there's no serialization library in the hot path. Variable-length data, like a list of collision boxes, travels as a count followed by fixed-size records.
 
+If you would rather generate the two bindings than hand-write them,
+[guide 2](02-passthrough-mods.md#writing-it-by-hand-or-generating-it) has a
+note on one tool that does it. The hand-written route is the safe one.
+
 ## Step 7: Add one feature at a time
 
 A sensible order, roughly smallest to largest:

@@ -166,6 +166,7 @@ Drop these into your own project.
 | [gang-beasts-rust](https://github.com/muffinmxn/gang-beasts-rust) | Rust/Bevy rewrite with Python extractors and a whitelist `.gitignore` |
 | [benilla](https://github.com/samwhosung/benilla) | A large Rust/Bevy rewrite (a WoW 1.12.1 client) |
 | [universal-modder](https://github.com/rehan-remade/universal-modder) | Eleven agent skills, a CLI, and a knowledge base of per-game field notes |
+| [passthrough-mod-toolkit](https://github.com/Orinkle/passthrough-mod-toolkit) | Generates the fixed part of a bridge from one schema: message bindings in five languages, plus fake host and guest stubs. Not tested on hardware yet |
 
 Finished open-source engine reimplementations, if you want to see what the long game looks like: [OpenMW](https://github.com/OpenMW/openmw), [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2), [OpenTTD](https://github.com/OpenTTD/OpenTTD).
 

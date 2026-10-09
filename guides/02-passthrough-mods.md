@@ -37,6 +37,26 @@ Three rules that come out of that layout, and that you should ask the agent for 
 >
 > "Passthrough" covers several different designs: swapping state, pasting the guest's picture into the host, or having the host draw the guest's meshes. [Guide 14](14-choosing-a-route.md) explains the difference, and [guide 15](15-case-studies-what-each-project-actually-did.md) shows how SkyCraft, LibertyCraft, the CrossOver bridges and others did it.
 
+### Writing it by hand, or generating it
+
+The five parts above are close to identical in every passthrough project.
+SkyCraft, FalloutCraft and ValCraft each typed them out by hand, and the
+differences between their headers come to a few lines. This is the part a tool
+can do.
+
+[passthrough-mod-toolkit](https://github.com/Orinkle/passthrough-mod-toolkit)
+is one option (MIT). A single `schema.yaml` generates the message bindings in
+five languages (C++, C#, Java, Rust, Python), and it ships a fake host and a
+fake guest, so the transport can be tested before either game is installed. It
+also has a small MCP server, so an agent can drive it directly.
+
+It does not run, patch or crack a game, and it does not write the host-side
+plugin. Hooking the loader and moving the player is still written by hand for
+each game, and that is most of the work. Its README reports that the SkyCraft,
+FalloutCraft and ValCraft protocol headers are 85-99% identical line by line.
+That is the project's own reading of the three sources, not a test, and nothing
+has been run inside a game yet.
+
 ## Examples to study
 
 | Project | Games | Notes |
