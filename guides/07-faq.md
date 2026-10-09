@@ -37,7 +37,7 @@ Games with no mod loader and no source. If the host game has nothing, you're rev
 Depends on the kind of project. A passthrough mod needs the host game running, and every example in these guides is Windows-only because the mod loaders are Windows tools. You'd be running the game under Wine or Proton and debugging it yourself. A Rust rewrite is different: the engine is your own code, so it builds for your OS, and IW4L documents Linux and macOS steps. Your own copy of the game still has to be readable from that OS though. See [guide 8](08-mod-loaders-and-script-extenders.md#windows-is-the-common-denominator).
 
 **SkyCraft or universal-modder, which do I use?**
-They do different jobs. SkyCraft is a working passthrough mod you read and adapt; [universal-modder](https://github.com/rehan-remade/universal-modder) is eleven agent skills plus a CLI that walks an agent through modding any game, including recon and reverse engineering. If you want Minecraft in Skyrim, use SkyCraft. If you're starting from a game nobody has touched, universal-modder is the better starting point.
+They do different jobs. SkyCraft is a working passthrough mod you read and adapt. [universal-modder](https://github.com/rehan-remade/universal-modder) is a toolkit you run an existing agent inside. If you want Minecraft in Skyrim, use SkyCraft. If you're starting from a game nobody has touched, universal-modder saves you working out the route.
 
 **What if my game doesn't have a loader?**
 You have more options than "give up" or "reverse engineer the whole thing". Work down this list and take the first one that reaches your idea: edit the game's data files directly, patch managed code with Harmony or Mixin, use native hooks on a C/C++ engine, or only then reimplement. Most ideas that look like they need a native hook turn out to be a data edit. [Guide 8](08-mod-loaders-and-script-extenders.md#which-route-is-cheapest) has the table.
@@ -71,19 +71,19 @@ None to start. Claude Code and Codex are agents, and MCP (Model Context Protocol
 Worth adding if you go on to reverse engineer: both [Ghidra](https://github.com/bethington/ghidra-mcp) and [IDA](https://github.com/HexRaysSA/ida-mcp) ship MCP servers, so the agent can decompile and rename functions itself instead of you pasting disassembly into a chat. The IDA one is official from Hex-Rays and installs with one command.
 
 **Can I use a free plan?**
-Not confirmed for a real project. Members expect to hit limits quickly. Free models inside OpenCode work for learning the workflow but get cut off and rate-limited. Pay-per-use API keys are another route. See [guide 11](11-models-and-cost.md).
+Not confirmed for a real project, and people expect to hit limits quickly. Free models inside OpenCode work for learning the workflow but get cut off and rate-limited. If you outgrow free, buy a subscription rather than paying per token. See [guide 11](11-models-and-cost.md).
 
 **What's the best value?**
 [OpenCode Go](https://opencode.ai/go) at $10, pointed at DeepSeek V4.1 Flash. OpenCode estimates roughly 26,000 requests per five-hour window on that model, which is their figure rather than something anyone's measured here. If you're buying one subscription instead of paying per token, Claude Pro at $20 beats anything cheaper.
 
 **Will the $20 plan be enough?**
-Yes for a project of this size. Expect roughly 3-4 hours of heavy use in each 5-hour window on the top model, so a weekend build fits comfortably. It depends on how much you do.
+Yes for a project of this size. Expect roughly 3-4 hours of heavy use in each 5-hour window on a top model, so a weekend build fits comfortably. A mid-tier model stretches further. It depends on how much you do.
 
 **Should I go straight to the $200 plan?**
 No. Upgrade in order: $20, max it out, then $100, then $200. Two things worth knowing before you do: the 5x and 20x multiples apply to the five-hour session window rather than your weekly allowance, and a weekly cap sits on top either way. See [guide 11](11-models-and-cost.md).
 
 **Do long chats burn my usage faster?**
-Yes. The whole conversation is carried along on every turn, so a 300-turn chat costs more per turn than a fresh one. Start a fresh chat with a [`STATUS-handoff.md`](../templates/STATUS-handoff.md) file when things get long. See [guide 4](04-prompting-and-workflow.md).
+Not as much as you'd think, as long as you stay in one. Repeated context is billed through prompt caching at a fraction of the normal input rate, so a long chat with a warm cache costs far less than starting a new one and paying full price to rebuild it. The two things that genuinely waste usage are opening new chats and swapping models mid-task. See [guide 4](04-prompting-and-workflow.md#stick-to-one-chat).
 
 **Can I run a local model on my own GPU?**
 They don't work well for this, and 12 GB of VRAM isn't enough for a good local coding model. Worth trying if you're curious, but expect to fight it. [Guide 11](11-models-and-cost.md) has the current thinking.
@@ -140,7 +140,7 @@ Other wins are sending deltas instead of full state, and fixing your update rate
 Yes, at first. Members describe their projects as "jank as hell but working." Performance and polish come after it functions.
 
 **How long does a passthrough mod take?**
-The only figure worth having is about 3-4 hours of back-and-forth for an Elden Ring + Spider-Man mashup, described as jank but working. Treat that as one data point, not a typical runtime. A rewrite is a completely different scale.
+The only figure worth having is about 3-4 hours of back-and-forth for an Elden Ring + Spider-Man mashup, and the result was jank but playable. Treat that as one data point, not a typical runtime. A rewrite is a completely different scale.
 
 ## Rules and sharing
 

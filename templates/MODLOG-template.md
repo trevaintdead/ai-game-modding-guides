@@ -43,7 +43,7 @@ That example sends position from the gameplay game to the host. SkyCraft works t
 ## Why bother
 
 - **For you:** you stop guessing what you already tried.
-- **For a fresh chat:** it beats handing over the whole chat. See [`STATUS-handoff.md`](STATUS-handoff.md).
+- **For a stuck chat:** it beats handing over the whole chat. See [`STATUS-handoff.md`](STATUS-handoff.md).
 - **For readers:** it's the closest thing to proof that the project is real and tested. Members notice this, and it's what separates a serious project from a vibe-coded one.
 - **For you later:** when you come back in six months, you'll want to know why you made a decision.
 

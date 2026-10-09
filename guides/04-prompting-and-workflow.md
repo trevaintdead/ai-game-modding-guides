@@ -27,7 +27,7 @@ Asking for the whole game at once usually goes badly. These habits help:
 
 - Ask for one thing at a time and have the agent tell you how to run it and what you should see.
 - Commit to Git after every working step. Version control lets you undo mistakes.
-- Ask the agent to write a plan first if the task is big or you want more control.
+- If you want more control on a big task, ask for the plan as part of the conversation rather than as a gate before any work happens.
 
 ## Keep the project's memory on paper
 
@@ -39,33 +39,45 @@ Agents forget between sessions. Files don't. Keep three small documents in your 
 
 Ask the agent to update them as it goes.
 
-## The handoff trick for stuck chats
+## Stick to one chat
 
-When a chat gets confused or very long:
+Work in a single chat for the length of a task. This is the cheapest way to work and it is what the people getting results actually do.
+
+The reason is caching. Everything you have already established, the files the agent has read, the format notes it worked out, sits in a cache that bills at about a tenth of the normal input price. Stay in the same chat and that context keeps paying the cheap rate. Start a new one and the agent is back to paying full price for all of it, then has to rediscover what it already knew.
+
+So the practical rules:
+
+- **One chat per task.** Do not open a second chat to "start clean" or because the last one feels messy. Messy is fine. The agent knows more than you think it does.
+- **Pick a model and stay on it.** Swapping models mid-task throws away the cache and burns a chunk of your allowance for nothing.
+- **Keep typing in the same chat.** An idle chat can fall out of cache, so if you are stepping away for a while, that is a good moment to think about what you actually want next.
+
+## When a chat really is stuck
+
+Some chats do get wedged: the agent loops on the same failing idea, or it has committed to an approach that is not working and keeps defending it. In that case a handoff file is worth the fresh start, because you are escaping a bad loop rather than routine housekeeping.
 
 1. Ask the agent to write the project's status and the exact problem it's stuck on into a detailed `.md` file.
 2. Open a **fresh chat** and give it that file.
 3. Ask it to read the file and suggest ways to troubleshoot.
 
-This helps most with less capable models. Closing and reopening chats to clear old context works too. A template is in [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md).
+A template is in [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md). The same file earns its keep for a different reason: it forces the agent to write down what it thinks is happening, and you often spot the wrong assumption in that summary before the agent does.
 
 ## Saving usage
 
-- Long chats carry all their history, so they use more of your limit. Starting fresh with a handoff file helps.
-- Close and reopen chats when you switch topics.
-Ask the agent, early on, to set up a documentation standard and to keep token efficiency in mind without losing functionality.
+- Stay in one chat. Cache does the work, and it only works if you stay put.
+- Do not swap models partway through a task.
+- Ask the agent, early on, to set up a documentation standard so it stops rediscovering your project on every session.
 - Don't treat any of this as a rule. Plans and models change.
 
 ## How long things take
 
 It depends on the model, how hard it thinks, and how big the task is. Anything from about 5 minutes to many hours is normal for a single piece of work.
 
-## When you hand over to a fresh chat
+## When a new chat is still the right call
 
-The handoff trick above solves a stuck chat. There are two other moments where it pays to start clean:
+Two cases, and only two:
 
-- **Starting a new project.** Nothing useful carries over between unrelated projects, and a long chat full of one game's details makes the agent reach for them in the next one. `STATUS.md` per project beats one continuous conversation.
-- **Switching agents or models.** Different tools read the same files differently. A handoff file gives the new one the same starting point.
+- **Starting a genuinely different project.** Nothing useful carries over, and a chat full of one game's details makes the agent reach for them in the next one. Keep a `STATUS.md` per project so each one starts from a known state.
+- **Switching agents or models.** Different tools read the same files differently, so a handoff file gives the new one the same starting point. Expect to pay full input price again for the context, so do it at a natural break rather than mid-problem.
 
 ## A worked starter prompt
 
@@ -84,10 +96,10 @@ Before you build anything, tell me:
 - does either have online play or anti-cheat? (We don't touch those.)
 - what's the smallest thing I can build first to prove this works
 
-Don't change any code yet. Just report what you found.
+Start there, then build it. Don't ask me again before the first one works.
 ```
 
-The last line is the one that matters. It costs you one turn and saves you from a confident plan built on a wrong assumption.
+Holding off on the first turn is the one part worth the wait. It costs you one turn and saves you from a confident plan built on a wrong assumption, which is the common way beginners lose a whole evening. After that, get on with it.
 
 ## Let the agent test what it can, and you test the rest
 
@@ -97,9 +109,7 @@ See [guide 5](05-testing-and-troubleshooting.md). The short version: the agent i
 
 ## The prompting debate
 
-**This section is open. It's meant to be argued with.**
-
-This is genuinely unsettled, and naming that is more useful than picking a side. Here are the arguments in full. Read both, try both, and post your results on the Discord.
+Both camps are quoted below because the disagreement is real. The short-and-loose side is the one people who ship projects land on, and it is what this guide recommends.
 
 > **One member:** "guys theres no tricks or special prompts, you literally just tell the ai to do stuff and itll do it. Thats all i do"
 >
@@ -143,28 +153,25 @@ Read side by side, those quotes contain two separate arguments:
 
 ### Where this lands
 
-Not a verdict. Something you can try either way:
+The loose side wins, for a specific reason rather than on taste. The models are trained to be given an instruction in ordinary language and left to work out the implementation. Pointing at a method instead of a result sends them down the first path that occurs to them, and they will then defend it. You wanted the outcome; you specified the route.
 
-- **Be precise about the goal and the evidence.** Both sides agree on this, and it's the thing that actually matters.
-- **Be loose about the implementation.** The main documented failure mode is tunnel-vision, so pointing at a method rather than a result carries real risk.
-- **When you're stuck, change the context instead of rewriting the prompt.** Start a fresh chat with a [`STATUS-handoff.md`](../templates/STATUS-handoff.md) file. That works regardless of which school you're in.
-- **Long-running projects need both.** The loose approach suits a two-hour project. Once you're 200 commits in, the rules file and the log matter more than any individual prompt.
+So:
 
-### Try it and tell us
+- **Be precise about the goal and the evidence.** This is the part that matters and both camps agree on it. Say what you wanted, what happened, paste the logs.
+- **Be loose about the implementation.** Do not dictate the method. The main documented failure is tunnel-vision on a specified approach.
+- **Write it the way you would say it.** Spelling, grammar and capitals do not matter. These models are trained on ordinary writing with errors in it, so a messy dictated message lands exactly as well as a polished one, and a mangled prompt will still be understood. Do not spend time fixing your prose.
+- **Link an example rather than describing one.** Pointing at SkyCraft or IW4L does more than any explanation you could write.
+- **When you are genuinely looping, change the context instead of the prompt.** A [`STATUS-handoff.md`](../templates/STATUS-handoff.md) file in a fresh chat breaks a stuck run. Save it for that, not for routine tidying.
+- **Long-running projects need notes more than they need prompt craft.** Once you are 200 commits in, the rules file and the log matter more than any individual prompt.
 
-A controlled comparison would be welcome here. Log the same task twice with a loose prompt and a detailed one, and record:
+There is no system to learn. The elaborate methods that circulate, the orchestration layers and the prompt templates, are mostly ways of feeling in control. Type what you want and let it work.
 
-- how many turns it took
-- whether it reached a working result
-- how much of your usage limit it consumed
-- what it got wrong
-
-Post it on the Discord and the best ones get folded into this page. A GitHub issue works too, if you'd rather have it written down somewhere permanent.
+If you want to settle it your own way, log the same task twice with a loose prompt and a detailed one, and record how many turns each took, whether it worked, what it consumed and what it got wrong. Post it on the Discord and the best ones get folded into this page.
 
 ### A few things that came up in the thread
 
 - **Voice dictation.** Several people dictate instead of typing, which gets you a long rambling prompt for free and removes the temptation to over-edit it.
-- **Ink-and-paper is cheaper than you think.** A prompt is a small part of a chat's cost, but a 200-turn chat is not. Starting fresh and handing over a file is the real saving.
+- **Ink-and-paper is cheaper than you think.** The prompt itself is a tiny part of what a turn costs. The expensive part is re-reading everything you already established, which is why staying in one chat with a warm cache beats starting fresh. See [Stick to one chat](#stick-to-one-chat).
 - **Let it test, but stop it from looking.** It will try to visually verify the game, which it cannot do. See [guide 5](05-testing-and-troubleshooting.md).
 - **Explain your constraints, not your implementation.** "It needs to work on a 2015 laptop" is context. "Use a thread pool" is an instruction.
 

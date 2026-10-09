@@ -12,7 +12,7 @@ What to pay, and what to point it at. Everything here was checked against the pr
 | $40 | OpenCode Go Plus | More of the same models. Rarely the best call over Claude Pro |
 | $100 | Claude Max 5x | For when $20 runs out mid-project |
 | $200 | Claude Max 20x | Only once you've proven you need it |
-| Pay per token | Any provider's API, usually via OpenRouter | When usage caps are the problem rather than budget |
+| Pay per token | Any provider's API, usually via OpenRouter | A last resort, if a subscription is not available to you |
 
 Reach for a different model and the price moves a lot. DeepSeek V4.1 Flash is $0.15 and $0.60 per million tokens off-peak through OpenCode Go, and a direct API comes out close to that. Claude's current flagship, Opus 5.5, is $4 and $20. Per token means you never hit a wall, and you also never get a flat monthly rate, which suits people who work in bursts.
 
@@ -26,7 +26,7 @@ Its $60 monthly allowance works out to roughly 26,000 requests per five-hour win
 
 Go's limits are the same shape as Claude's: 20% of the monthly allowance per five hours, 50% weekly, 100% monthly.
 
-Go Plus is $40 with higher limits. Only worth it if you're running many agents in parallel or you keep hitting Go's cap and don't want to switch to Claude.
+Go Plus is $40 with higher limits. Only worth it if you keep hitting Go's cap and don't want to switch to Claude.
 
 ## $20: Claude Pro
 
@@ -34,15 +34,17 @@ The default recommendation if you're buying one subscription. Most people doing 
 
 $20 monthly, or $17 monthly on annual billing ($200 up front). Claude Code is included.
 
-Limits are a rolling five-hour session window plus a weekly cap that resets at a fixed time assigned to your account. Expect roughly 3 to 4 hours of constant use per five-hour window on a top model. A from-scratch basketball game came in comfortably on the $20 tier.
+Limits are a rolling five-hour session window plus a weekly cap that resets at a fixed time assigned to your account. Expect roughly 3 to 4 hours of constant use per five-hour window on a top model, and more on a mid-tier one. A from-scratch basketball game came in comfortably on the $20 tier.
 
-Treat the session window as the real constraint. The weekly limit rarely bites if you hand chats over with a [`STATUS.md`](../templates/STATUS-handoff.md) file instead of letting one grow for a week.
+Treat the session window as the real constraint. Stay in one chat and let prompt caching carry the repeated context, because a long session with a warm cache costs far less than restarting it. See [guide 4](04-prompting-and-workflow.md#stick-to-one-chat).
 
 ## If you want to upgrade, go in order
 
 **$20, max it out. Then $100, max it out. Then $200.**
 
 The reasoning is that each tier is worth it only if you exhausted the one below.
+
+Before upgrading, though, try a cheaper model on the same problem. A mid-tier Claude model is close to the top one on most of this work, at a fraction of the price, and if it handles your task the upgrade bought you nothing. The top tier earns its money when you are running long unattended jobs and want the result right first time, not when you are iterating with playtests.
 
 | Tier | Price | Pro equivalent |
 |------|-------|----------------|
@@ -57,7 +59,7 @@ Two things people get wrong here:
 
 Max is monthly only. Upgrading mid-cycle charges prorated.
 
-If you're paying per token instead, a route that works: OpenRouter with a strong open model. VS Code plus Roo Code with OpenRouter and a DeepSeek model is a common combination when a Claude plan is out of reach.
+If a subscription genuinely is not available to you, the pay-per-token route is OpenRouter with a strong open model. VS Code plus Roo Code with OpenRouter and a DeepSeek model is the usual combination. Expect to pay more than a subscription for the same amount of work.
 
 ### Two things that change the bill more than the model
 
@@ -96,7 +98,7 @@ Before spending anything:
 
 - **Free models inside OpenCode.** Several are free for a limited time, including DeepSeek-adjacent options and some stealth models. Free models get cut off and rate-limited, so treat them as good for learning the workflow and bad for a serious project.
 - **Local models on your own hardware.** They don't work well for this. A 12 GB GPU isn't enough for a good local coding model. Your GPU being a 5090 makes no difference to a cloud model, since that work runs on the provider's servers.
-- **Pay-per-token APIs.** Cheap enough to try something, and you stop when you stop. Good for a weekend project, bad for anything long.
+- **Pay-per-token APIs.** Buy a subscription instead. The plans are heavily subsidised, so a flat monthly rate is usually cheaper than the same tokens bought one at a time, and it removes the risk of a runaway loop billing you real money. Pay per token only if you cannot get a subscription at all.
 - **Cheaper Claude tiers.** Running Sonnet instead of a top model costs less per token and is usually good enough for the bulk of a project. Save the expensive model for the part where you're stuck.
 
 ## What a plan gets you that tokens don't
@@ -107,7 +109,7 @@ Subscription plans aren't only about price. Three things are easier on a plan an
 - **Priority access.** Max plans get served ahead of free users at busy times, which matters when you're mid-project.
 - **Credits included.** Paid plans come with usage credits for image and asset generation, which you otherwise buy separately.
 
-The reason people stay on a subscription is the ceiling, not the price. Predictable, short work is cheaper per token.
+The subscription is the cheaper route for anything you keep working on, and the ceiling is what you are really buying. Per token only wins if you stop after an hour, which is not what these projects are.
 
 ## Open questions
 

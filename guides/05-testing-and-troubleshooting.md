@@ -24,11 +24,14 @@ Find the cause before changing any code.
 
 ## When the agent is stuck in a loop
 
-1. Stop. Repeating the same prompt rarely helps.
-2. Ask it to write a status file: the project state and the exact problem. See [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md).
-3. Start a fresh chat and give it the file.
-4. Ask for different approaches, and explain which ones already failed.
-5. If it still can't, a smaller goal or a different model may help.
+1. Stop. Repeating the same prompt rarely helps, because the agent takes the same reading of it again.
+2. Say what you actually want instead of restating the request. If it kept trying to rewrite everything from scratch when you wanted it to reuse the original's motion graphs, name that. A vague complaint produces a vague fix.
+3. Ask it to write a status file: the project state and the exact problem. See [`templates/STATUS-handoff.md`](../templates/STATUS-handoff.md).
+4. Start a fresh chat and give it the file. This is the one case where a new chat earns its cost, because you are escaping a loop rather than tidying up.
+5. Ask for different approaches, and explain which ones already failed.
+6. If it still can't, a smaller goal may help.
+
+Read the status file yourself before sending it. It is the agent's account of what it thinks is happening, and the wrong assumption is usually visible in writing even when it survived twenty turns of conversation.
 
 ## Common problems
 
@@ -39,7 +42,7 @@ You're probably in a chat website or a non-agent mode. Switch to an agent. See [
 Check that tool's documentation for permission or sandbox settings. Give it access to your project and game folders only.
 
 **I ran out of usage.**
-Plans have a roughly 5-hour reset window and a weekly limit. Start fresh chats with handoff files, and check your provider's current plans.
+Plans have a roughly 5-hour reset window and a weekly limit. Stay in one chat rather than starting new ones, since prompt caching is what keeps a long session affordable, and stay on the model you started with. Check your provider's current plans for the actual limits.
 
 **The AI refuses.**
 Read the reason. If it's about anti-cheat or online games, the answer is no, and those aren't supported. If it's a single-player mod with your own copy of the game, say that plainly and describe your goal honestly. Don't try to disguise what you're doing, and don't try to get around DRM or anti-cheat.

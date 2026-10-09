@@ -1,8 +1,8 @@
 # STATUS handoff
 
-Use this when a chat is stuck, confused, or very long. Ask the agent to fill it in, save it as `STATUS.md`, then open a **fresh chat** and give it the file.
+Use this when a chat is genuinely stuck: the agent is looping on the same failure, or it has committed to an approach that is not working. Ask the agent to fill it in, save it as `STATUS.md`, then open a **fresh chat** and give it the file.
 
-This is the highest-value trick in the whole workflow. It works because long chats carry their entire history on every turn, which burns your usage limit and hands the model a pile of context that includes every wrong turn you took. A fresh chat plus this file gives it only what matters.
+This is an escape hatch, not routine housekeeping. In normal work, stay in one chat and let prompt caching do the work, because a long chat with a warm cache is much cheaper than starting over. See [Why it works](#why-it-works).
 
 ## Prompt to get the agent to write it
 
@@ -62,24 +62,26 @@ troubleshoot it, starting with the ones we haven't tried.
 
 ## Why it works
 
-Three reasons:
+Two reasons, and neither is about saving tokens:
 
-1. **Your usage limit.** Long chats re-read the whole transcript every turn. A fresh chat with a 2 KB file is much cheaper than turn 400 of an argument.
-2. **No sunk cost.** The old chat has already committed to an approach and will keep defending it. A fresh chat has no ego attached.
-3. **The agent can plan.** Given a clean statement of the problem it can offer a different approach. In a long chat it tends to keep tweaking the failing thing.
+1. **No sunk cost.** The old chat has already committed to an approach and will keep defending it. A fresh chat has no ego attached.
+2. **The agent can plan.** Given a clean statement of the problem it can offer a different approach. In a long chat it tends to keep tweaking the failing thing.
 
-This helps most with the less capable models, but everyone uses it.
+There is also a third benefit that shows up before you even start the new chat: writing the file forces the agent to state what it thinks is happening, and you often spot the wrong assumption in that summary yourself.
+
+What this is **not** for: staying in a fresh chat on purpose. Starting a new chat throws away the prompt cache, so you pay full input price again for everything the agent had already read. That is fine once, to escape a loop, and wasteful as a habit.
 
 ## Other times to write one
 
 - Before you stop for the night, so you can pick up tomorrow without rereading the chat
-- Before switching models or tools
+- Before switching models or tools, where a fresh start is worth the cache you lose
 - Before asking for help in a forum or Discord thread; the STATUS file *is* the bug report
 - When the agent has clearly lost the plot
 
 ## Keeping chat size down generally
 
-- Start a fresh chat when you switch topics, not only when you're stuck.
+- Work in one chat and let the cache carry the context. Do not open a new one to tidy up.
+- Do not swap models partway through a task; it throws the cache away and buys nothing.
 - Ask the agent to update `MODLOG.md` as it works. The log is your long-term memory, so the chat doesn't have to be.
 - Keep the rules in `AGENTS.md` rather than retyping them every session.
 
