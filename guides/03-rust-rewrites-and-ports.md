@@ -136,11 +136,11 @@ Read [guide 6](06-rules-legal-and-publishing.md) before going down this path. It
 ## Starter prompt
 
 ```
-I want to build a Rust rewrite of [Game] that reads its data from my own installed copy at [path] at runtime. Use [IW4L / gang-beasts-rust / benilla] as a reference for structure: [links].
+I want to build a Rust rewrite of [Game] that reads its data from my own installed copy at [path] at runtime. Match the original's actual behaviour, and where you are unsure, read the real files and decompiled output rather than guessing. Use [IW4L / gang-beasts-rust / benilla] as a reference for structure: [links].
 
 Rules: never copy game assets or decompiled code into the repo. Use a whitelist .gitignore. Credit anything you learn from and keep licenses.
 
-First, look for existing documentation, file format specs, and decomp projects for this game, and tell me what's out there before you start building.
+First, look for existing documentation, file format specs, and decomp projects for this game, and tell me what's out there. Then start on the smallest thing that proves the data loads. Don't ask me again before that works.
 ```
 
 ## Passthrough or rewrite?

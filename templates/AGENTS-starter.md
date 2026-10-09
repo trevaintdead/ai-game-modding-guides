@@ -36,8 +36,9 @@ Copy the block below into your project root as `AGENTS.md`, fill in the brackete
 
 ## How to work
 
-- **Plan before code.** For anything more than a small fix, write the plan to
-  `docs/DESIGN.md` first, then implement one step at a time.
+- **Keep the design notes as you go.** Once the shape of something is clear, write it into
+  `docs/DESIGN.md`. Do not stop and produce a plan before starting: get one thing working,
+  then write down how it works.
 - **One thing at a time.** Do not bundle unrelated changes. I want to be able to
   revert a single step.
 - **Log, don't look.** You cannot see the game. Instrument instead: write
@@ -95,7 +96,7 @@ Replace `templates/STATUS-handoff.md` and `templates/MODLOG-template.md` above w
 | Stay in the project folder | Agents with broad access will happily rewrite a config file you care about. |
 | Single-player and offline only | Online play means banned accounts. The line is online versus offline, not "has anti-cheat installed": a game with anti-cheat can still be modded offline using its own official option. |
 | No credentials | Agents read everything in the working directory. |
-| Plan first | Long sessions go wrong when the model changes its mind halfway. |
+| Write it down | Long sessions go wrong when the model changes its mind halfway. Notes on disk are what stop it changing its mind again. |
 | Log, don't look | The agent cannot see the game. Numbers are the only feedback channel it has. |
 | Write "not tested" | An unverified claim in a README wastes someone else's afternoon. |
 | Stop after two attempts | Looping burns your usage cap and produces random variations rather than a different approach. |

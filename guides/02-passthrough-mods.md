@@ -92,10 +92,10 @@ Before you build anything, tell me:
 - does either have online play or anti-cheat? (We don't touch those.)
 - what's the smallest thing I can build first to prove this works
 
-Don't change any code yet. Just report what you found.
+Start there, then build it. Don't ask me again before the first one works.
 ```
 
-The last line is the one that matters. It costs you one turn and saves you from a confident plan built on a wrong assumption.
+Asking about loaders first costs one turn and saves you from a confident plan built on a wrong assumption, which is the common way beginners lose a whole evening. That is the only reason to hold off. Once you know the route, get on with it, and do not keep checking in.
 
 You can add more later, like what features you want first.
 

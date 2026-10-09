@@ -80,21 +80,21 @@ Before you build anything, tell me:
 - does Game A have a mod loader or script extender we can use?
 - does either game have online play or anti-cheat? (We don't touch those.)
 
-Don't change any code yet. Just report what you found.
+Start there, then build it. Don't ask me again before the first one works.
 ```
 
-The last line matters. A read-only recon answer first costs one turn and saves you from a confident plan built on a wrong assumption.
+A read-only answer first costs one turn and saves you from a confident plan built on a wrong assumption. After that, build rather than ask.
 
 **What you should get back:** a list of what exists for each game, which loader you'd use, and any blockers. If it says "Game A has no modding support," you have your answer for free. Go pick a different host game.
 
-## Step 4: Get a plan, then get one line into a log
+## Step 4: Get one line into a log
 
-Ask for a plan before code:
+Build first, then write down the shape:
 
 ```
-Write the plan as docs/DESIGN.md. Keep it to: the two halves of the mod,
-what data crosses between them, and the order we build it in.
-Then implement step 1 only.
+Start on step 1. Once it works, write docs/DESIGN.md: the two halves of the mod,
+what data crosses between them, and the order we are building it in.
+Then keep going.
 ```
 
 The design doc needs four things, and asking for them by name saves a round trip:
@@ -230,7 +230,7 @@ See [guide 10](10-posting-your-project.md) for posting it, and [guide 6](06-rule
 
 - An Elden Ring + Spider-Man mashup took about 3-4 hours of back-and-forth before it worked, and the result was jank but playable. One data point, not a typical runtime.
 - The wall people hit tends to be the first time something crosses the boundary and lands in the wrong coordinate space, or the two games' frame clocks drifting apart. Both are normal.
-- When you hit one: stop repeating prompts. Write a `STATUS.md`, open a fresh chat, hand it over. See [guide 5](05-testing-and-troubleshooting.md).
+- When you hit one: stop repeating prompts. Write a `STATUS.md`, open a fresh chat, hand it over. This is the one case where starting over pays for itself. See [guide 5](05-testing-and-troubleshooting.md).
 
 ## The four things that eat the most time
 
