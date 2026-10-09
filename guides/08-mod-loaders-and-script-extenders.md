@@ -41,12 +41,12 @@ Four of those loaders are big enough to be worth reading as projects in their ow
 
 | Loader | Stars | Licence | Why it's worth a look |
 |---|---:|---|---|
-| [BepInEx](https://github.com/BepInEx/BepInEx) | 8,790 | LGPL-2.1 | The default for Unity and XNA games. Most Unity mod tutorials assume it |
-| [tModLoader](https://github.com/tModLoader/tModLoader) | 5,705 | MIT | Terraria's official modding API, and a good model for how to version a mod API |
-| [REFramework](https://github.com/praydog/REFramework) | 5,582 | MIT | Spans Capcom's RE Engine family from one install, which no other loader does |
-| [MelonLoader](https://github.com/LavaGang/MelonLoader) | 4,239 | Apache-2.0 | The main alternative to BepInEx for Unity, and covers more title variants |
+| [BepInEx](https://github.com/BepInEx/BepInEx) | 8,797 | LGPL-2.1 | The default for Unity and XNA games. Most Unity mod tutorials assume it |
+| [tModLoader](https://github.com/tModLoader/tModLoader) | 5,710 | MIT | Terraria's official modding API, and a good model for how to version a mod API |
+| [REFramework](https://github.com/praydog/REFramework) | 5,592 | MIT | Spans Capcom's RE Engine family from one install, which no other loader does |
+| [MelonLoader](https://github.com/LavaGang/MelonLoader) | 4,243 | Apache-2.0 | The main alternative to BepInEx for Unity, and covers more title variants |
 
-Star counts as of October 2026. These four are established projects with years of history, unlike most of the AI-assisted examples in this repo, which are weeks old.
+Star counts as of 9 October 2026. These four are established projects with years of history, unlike most of the AI-assisted examples in this repo, which are weeks old.
 
 On GameMaker: there is no GameMaker 3. UndertaleModTool covers GameMaker Studio 1.4 and GameMaker Studio 2, bytecode versions 13 through 17. It can't touch YYC-compiled games, and there's no official way to run its GUI on macOS or Linux, so on those platforms you need Wine.
 

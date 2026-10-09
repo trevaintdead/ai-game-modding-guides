@@ -43,7 +43,7 @@ Variants of SkyCraft's design: [FalloutCraft](https://github.com/zeyvu/FalloutCr
 
 ## Where to look
 
-Read only the guide the person needs. The guides total about 38,000 words, and the templates another 4,000.
+Read only the guide the person needs. The guides total about 39,000 words, and the templates another 4,000.
 
 | They want to | Read |
 |---|---|

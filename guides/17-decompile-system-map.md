@@ -4,7 +4,7 @@
 
 Forty-six areas, each listing what has to be worked out and why. Sections keep their original numbering, so you can point someone at "number 33" and they will find the same thing you did.
 
-Star counts quoted in this page are as of October 2026. They are there to show which projects have traction, not to be precise, and they move.
+Star counts quoted in this page are as of 9 October 2026. They are there to show which projects have traction, not to be precise, and they move.
 
 Where a claim could be checked against a public project, it has been, and the project is named. Where it could not, the page says so.
 
@@ -14,9 +14,9 @@ The goal is to reproduce the original game's behaviour closely enough that your 
 
 Two different jobs get called "decompile", and confusing them costs months:
 
-**Matching decompilation** reconstructs source that compiles to a byte-identical copy of the original binary. [zeldaret/oot](https://github.com/zeldaret/oot) (5,562 stars) does this for Ocarina of Time, and the project states plainly that it "is not producing a PC port." Matching demands the exact compiler, the exact optimisation level, and the original build timestamp, because all three end up baked into the output.
+**Matching decompilation** reconstructs source that compiles to a byte-identical copy of the original binary. [zeldaret/oot](https://github.com/zeldaret/oot) (5,567 stars) does this for Ocarina of Time, and the project states plainly that it "is not producing a PC port." Matching demands the exact compiler, the exact optimisation level, and the original build timestamp, because all three end up baked into the output.
 
-**Reimplementation** builds a new engine that reads the original's data files and behaves similarly, without reproducing the binary. [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) (16,387 stars) and [OpenMW](https://github.com/OpenMW/openmw) (6,606 stars) are both this, and so is [IW4L](12-worked-example-rust-rewrite.md).
+**Reimplementation** builds a new engine that reads the original's data files and behaves similarly, without reproducing the binary. [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) (16,402 stars) and [OpenMW](https://github.com/OpenMW/openmw) (6,611 stars) are both this, and so is [IW4L](12-worked-example-rust-rewrite.md).
 
 Matching is the harder discipline and the one with more legal exposure, since you are reproducing the actual code rather than its behaviour. [Guide 13](13-reverse-engineering-and-the-law.md) covers that difference.
 
@@ -38,7 +38,7 @@ Machine code -> Assembly -> Decompiler output -> Named systems -> Readable sourc
 
 Tools for that, roughly in the order people reach for them: **Ghidra**, **IDA Pro**, Binary Ninja, radare2 with Cutter, Capstone for disassembly libraries, Frida for instrumentation, x64dbg and WinDbg on Windows, gdb elsewhere, and rr for recording execution so a crash can be replayed.
 
-[ghidra-mcp](https://github.com/bethington/ghidra-mcp) (4,708 stars, Apache-2.0) and [ida-mcp](https://github.com/HexRaysSA/ida-mcp) expose these through an MCP server, so an agent can drive the decompiler directly instead of you pasting disassembly into a chat window. Both are covered in [guide 3](03-rust-rewrites-and-ports.md#when-you-do-need-it).
+[ghidra-mcp](https://github.com/bethington/ghidra-mcp) (4,990 stars, Apache-2.0) and [ida-mcp](https://github.com/HexRaysSA/ida-mcp) expose these through an MCP server, so an agent can drive the decompiler directly instead of you pasting disassembly into a chat window. Both are covered in [guide 3](03-rust-rewrites-and-ports.md#when-you-do-need-it).
 
 ## 2. Engine core
 
@@ -170,7 +170,7 @@ Then the API underneath usually has to change, because the original targeted som
 DirectX 8, DirectX 9, OpenGL, proprietary API  ->  Vulkan, DX12, modern OpenGL, WebGPU
 ```
 
-This is a solved problem with mature tooling, and it is worth knowing it is solved. [DXVK](https://github.com/doitsujin/dxvk) (18,245 stars, Zlib) implements D3D8 through D3D11 on Vulkan, and [vkd3d-proton](https://github.com/HansKristian-Work/vkd3d-proton) (2,995 stars) does D3D12. Both run existing Windows games on Linux under Wine, which is exactly the translation problem, already dealt with.
+This is a solved problem with mature tooling, and it is worth knowing it is solved. [DXVK](https://github.com/doitsujin/dxvk) (18,254 stars, Zlib) implements D3D8 through D3D11 on Vulkan, and [vkd3d-proton](https://github.com/HansKristian-Work/vkd3d-proton) (2,994 stars) does D3D12. Both run existing Windows games on Linux under Wine, which is exactly the translation problem, already dealt with.
 
 For compiling shaders from source, the DirectX Shader Compiler ([DXC](https://github.com/microsoft/DirectXShaderCompiler), 3,659 stars) is the maintained option for anything Direct3D-era tooling cannot handle.
 
